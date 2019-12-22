@@ -1,0 +1,24 @@
+name: OperatorOps Installer
+
+on: [push]
+
+jobs:
+  deploy_dWeb_smart_contracts:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Deploying smart contracts to EOS
+      env: 
+        EOS_PRIVATE_KEY: ${{ secrets.EOS_PRIVATE_KEY }}
+      run: echo "EOS PRV KEY is ${EOS_PRIVATE_KEY}"
+
+  deploy_dWeb_application_to_ipfs:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Upload the dWeb application to Pinata
+      env: 
+        PINATA_API_KEY: ${{ secrets.PINATA_API_KEY }}
+      run: echo "PINATA API KEY is ${PINATA_API_KEY}"

@@ -3,7 +3,7 @@ name: OperatorOps setup
 on: [push]
 
 jobs:
-  deploy dWeb smart contracts:
+  deploy_dWeb_smart_contracts:
 
     runs-on: ubuntu-latest
 

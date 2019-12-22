@@ -24,7 +24,7 @@ First thing first, before we can deploy anything, let's arrange our work environ
 #### 2. Configure the github actions pipeline.
 1. In order to activate the github actions workflow, we first need to defined a few environment variables:
     
-    - Navigate to the 'Settings -> Secrets' tab.
+    - Navigate to the **Settings** -> **Secrets** tab.
     ![actions tab](images/github-settings-tab.png)
     - Click the *'Add a new secrets'* button, and add the following Secrets:
       ```
@@ -39,3 +39,5 @@ First thing first, before we can deploy anything, let's arrange our work environ
       ```
     - At the end of the process, your screen should look like that...
      ![actions tab](images/github-secrets-screen.png)
+
+2. Navigate to the **Actions** tab and activate the workflow.

@@ -1,0 +1,14 @@
+name: OperatorOps setup
+
+on: [push]
+
+jobs:
+  deploy dWeb smart contracts:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Deploying smart contracts to EOS
+      env: 
+        EOS_PRIVATE_KEY: ${{ secrets.EOS_PRIVATE_KEY }}
+      run: echo "EOS PRV KEY is $EOS_PRIVATE_KEY"

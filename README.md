@@ -19,13 +19,13 @@ First thing first, before we can deploy anything, let's arrange our work environ
 2. Navigate to the [Creator-Eco/OperatorOps](https://github.com/Creator-Eco/OperatorOps) repository.
 3. On the upper-right side click the **Fork** button, to copy the repo to your account.
    
-   ![fork the Creator-Eco/OperatorOps](/install/images/github-fork.png)
+   ![fork the Creator-Eco/OperatorOps](install/images/github-fork.png)
 
 #### 2. Configure the github actions pipeline.
 1. In order to activate the github actions workflow, we first need to defined a few environment variables:
     
     - Navigate to the 'Settings -> Secrets' tab.
-    ![actions tab](/install/images/github-settings-tab.png)
+    ![actions tab](install/images/github-settings-tab.png)
     - Click the *'Add a new secrets'* button, and add the following Secrets:
       ```
       Name: EOS_PRIVATE_KEY
@@ -38,4 +38,4 @@ First thing first, before we can deploy anything, let's arrange our work environ
       Value: <Your Cloudflare api key>     
       ```
     - At the end of the process, your screen should look like that...
-     ![actions tab](/install/images/github-secrets-screen.png)
+     ![actions tab](install/images/github-secrets-screen.png)

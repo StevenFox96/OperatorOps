@@ -3,22 +3,24 @@ name: OperatorOps Installer
 on: [push]
 
 jobs:
-  deploy_dWeb_smart_contracts:
+  operator-setup:
 
     runs-on: ubuntu-latest
 
     steps:
-    - name: Deploying smart contracts to EOS
+    
+    - name: Deploying smart contracts to EOS...
       env: 
         EOS_PRIVATE_KEY: ${{ secrets.EOS_PRIVATE_KEY }}
       run: echo "EOS PRV KEY is ${EOS_PRIVATE_KEY}"
-
-  deploy_dWeb_application_to_ipfs:
-
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: Upload the dWeb application to Pinata
+    
+    - name: Uploading the dWeb application to Pinata...
       env: 
         PINATA_API_KEY: ${{ secrets.PINATA_API_KEY }}
       run: echo "PINATA API KEY is ${PINATA_API_KEY}"
+      
+    - name: Configuring Cloudflare DNS...
+      env: 
+        CLOUDFLARE_API_KEY: ${{ secrets.CLOUDFLARE_API_KEY }}
+      run: echo "CLOUDFLARE API KEY is ${CLOUDFLARE_API_KEY}"      
+

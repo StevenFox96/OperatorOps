@@ -82,7 +82,8 @@ In this step we will create a saparate github's actions [Secret](https://help.gi
    
 ![Pinata account page](images/pinata.png)
 
-- Cloudflare API key:  
+- Cloudflare API key:
+
   > With this key the github's actions pipeline will be able to configure your DNS to point to the location of the **dWeb appliaction** you have uploded to IPFS.
 
 1. Connect to your [Cloudflare](https://dash.cloudflare.com/sign-up) account.

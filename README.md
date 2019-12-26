@@ -86,16 +86,16 @@ In this step we will create a saparate github's actions [Secret](https://help.gi
 - Cloudflare API key:  
   > With this key the github's actions pipeline will be able to configure your DNS to point to the location of the **dWeb appliaction** you have uploded to IPFS.
 
-  1. Connect to your [Cloudflare](https://dash.cloudflare.com/sign-up) account.
-  2. On the upper-right corner, click on your **My profile** button and navigate to you profile homepage.
-  3. Navigate to the **API Tokens** tab.
-  4. Click the **Create Token** button.
-  5. Fill the form as following:
+1. Connect to your [Cloudflare](https://dash.cloudflare.com/sign-up) account.
+2. On the upper-right corner, click on your **My profile** button and navigate to you profile homepage.
+3. Navigate to the **API Tokens** tab.
+4. Click the **Create Token** button.
+5. Fill the form as following:
 
-    ![Cloudflare create Api token](images/cloudflare.png)
+  ![Cloudflare create Api token](images/cloudflare.png)
 
-  6. Click the **Continue to Summary** button, and then the **Create Token** button.
-  7. Save the given API token for later use.
+6. Click the **Continue to Summary** button, and then the **Create Token** button.
+7. Save the given API token for later use.
 
 Super dope!!! we now have all the necessaries secrets in order to activate the OperatorOps github's actions pipeline.
 

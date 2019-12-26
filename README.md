@@ -77,11 +77,11 @@ In this step we will create a saparate github's actions [Secret](https://help.gi
 - Pinata API key:
   > With this key the github's actions pipeline will be able to upload and start pinning the **dWeb appliaction** files in IPFS.
    
-  1. Connect to your [Pinata](https://pinata.cloud/signup) account.
-  2. On the upper-right corner, click on your profile image and navigate to your **Account Page**.
-  3. in the **Account Page**, the relevat value exists under the PINATA SECRET API KEY field.
+1. Connect to your [Pinata](https://pinata.cloud/signup) account.
+2. On the upper-right corner, click on your profile image and navigate to your **Account Page**.
+3. in the **Account Page**, the relevat value exists under the PINATA SECRET API KEY field.
    
-  ![Pinata account page](images/pinata.png)
+![Pinata account page](images/pinata.png)
 
 - Cloudflare API key:  
   > With this key the github's actions pipeline will be able to configure your DNS to point to the location of the **dWeb appliaction** you have uploded to IPFS.
@@ -92,7 +92,7 @@ In this step we will create a saparate github's actions [Secret](https://help.gi
 4. Click the **Create Token** button.
 5. Fill the form as following:
 
-  ![Cloudflare create Api token](images/cloudflare.png)
+![Cloudflare create Api token](images/cloudflare.png)
 
 6. Click the **Continue to Summary** button, and then the **Create Token** button.
 7. Save the given API token for later use.

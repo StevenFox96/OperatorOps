@@ -64,8 +64,7 @@ In the next step, we'll configure the github's actions pipeline.
 
 
 #### 2. Collect API secrets. 
-Our github's actions pipeline will work against the API of each of the *service providers* we mentioned above (Cloudflare, Pinata, etc.).  
-In order to do that the github's actions pipeline will use a dedicated API key for each of services.  
+Our github's actions pipeline will work against the API of each of the *service providers* we mentioned above (Cloudflare, Pinata, etc.), in order to do that the github's actions pipeline will use a dedicated API key for each of services.  
 
 In this step we will create a saparate github's actions [Secret](https://help.github.com/en/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets) variable that will later be used by the pipeline.
 

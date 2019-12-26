@@ -30,7 +30,7 @@ In order for you to complete this guide, and become a **dWeb Operator**, you sho
 
 ### Configuration Architecture:
 
-![actions tab](images/dweb-arch.png)
+![dWeb architecture](images/dWeb-arch.png)
 
 
 ### Installation:
@@ -81,7 +81,7 @@ In this step we will create a saparate github's actions [Secret](https://help.gi
   2. On the upper-right corner, click on your profile image and navigate to your **Account Page**.
   3. in the **Account Page**, the relevat value exists under the PINATA SECRET API KEY field.
    
-  ![actions tab](images/pinata.png)
+  ![Pinata account page](images/pinata.png)
 
 - Cloudflare API key:  
   > With this key the github's actions pipeline will be able to configure your DNS to point to the location of the **dWeb appliaction** you have uploded to IPFS.
@@ -92,7 +92,7 @@ In this step we will create a saparate github's actions [Secret](https://help.gi
   4. Click the **Create Token** button.
   5. Fill the form as following:
 
-    ![actions tab](images/cloudflare.png)
+    ![Cloudflare create Api token](images/cloudflare.png)
 
   6. Click the **Continue to Summary** button, and then the **Create Token** button.
   7. Save the given API token for later use.
@@ -103,7 +103,7 @@ Super dope!!! we now have all the necessaries secrets in order to activate the O
 
 In this step we'll create a dedicated secret variable for each of the API secrets we collect in the privious step.
 1. In the *OperatorOps* repository homepage, click the **Settings** tab and then select the **Secrets** tab.  
-  ![actions tab](images/github-settings-tab.png)
+  ![github's settings tab](images/github-settings-tab.png)
 
 2. For each of the API secrets you collected before, create a **Secret** variable with the corresponding names:
       ```
@@ -117,7 +117,7 @@ In this step we'll create a dedicated secret variable for each of the API secret
       Value: <Your Cloudflare api key>     
       ```
    At the end of the process, your setup should look like that...
-     ![actions tab](images/github-secrets-screen.png)
+     ![github's actions secrets](images/github-secrets-screen.png)
 
 #### 4. Activate the github's actions pipeline.
 

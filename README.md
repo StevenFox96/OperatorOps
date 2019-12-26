@@ -1,19 +1,57 @@
 # How to become a dWeb Operator?
 
-The setup process of becoming a dWeb operator consists of three parts:
+The **dWeb Operator** role is one of the most fundamental building blocks of the **dWeb** ecosystem.  
+A **dWeb Operator** have many responsibilities among managing the lifecycle of the **dWeb Application**, maintaining security, preserving the availability and reliability of the **dWeb Application**.
 
-1. Deployment of smart contracts to EOS blockchain.
-2. Deployment of the dWeb's application to an IPFS network.
-3. DNS configuration.  
+A more in-depth information about the **dWeb Operator** role, and the other roles in the **dWeb eocsystem** could be found [here](https://google.com).
 
-Although the above steps may look complex at first glance, don't worry, this process is fully automated via a github action pipeline.
-If you are not familiar with github actions, it's simply an automation framework that helps developer manage their application lifecycle.
+### Intorduction:
+
+Below you will find a step-by-step guide that will help you to establish all the necessary components that a **dWeb Operator** needs in order to serve a **dWeb application**.  
+Although we've using specific *service providers* ([*Cloudflare*](https://www.cloudflare.com/), [*Pinata*](https://pinata.cloud/) etc.) in this guide, it worth mention that each of this services has one or more alternatives, and you are more than welcome to choose other service providers, and use them in your personal installation process.
+
+Please note, as we've tested many configurations combinations for the *service providers* stack along the way, we've found that the *service providers* list below enable the most easy-to-use and configure installation process.
+
+1. [Blockstart Base Package](https://dsphq.io/packages/blockstartac/ipfsservice1/blockpack2) as a DSP (dApp Service Provider) package.  
+2. [Pinata](https://pinata.cloud/) as an IPFS pinning service.  
+3. [Cloudflare](https://www.cloudflare.com/) as a DNS configuration service. 
+
+### Prerequisites:
+
+In order for you to complete this guide, and become a **dWeb Operator**, you should have the following:
+
+1. An active EOS account with a balance of 10000 DAPP tokens.  
+2. An active [github](https://github.com/) account.
+3. An active [Pinata](https://pinata.cloud/signup) account.
+4. An active [Cloudflare](https://dash.cloudflare.com/sign-up) account. 
+
+  > You can purchase DAPP tokens by using the [Bancor](https://www.bancor.network) exchange (or any other exchange that you like to use)
+
+
+### Configuration Architecture:
+
+![actions tab](images/dweb-arch.png)
+
+
+### Installation:
+
+The **dWeb Operator** installation process consists of 5 major parts:
+
+1. Select a DSP and a DSP package to work with.
+2. Stake DAPP tokens for the chosen DSP.
+3. Deploy the **dWeb Core** smart contract to EOS blockchain.
+4. Upload the **dWeb's Application** to the IPFS network.
+5. Configure your DNS to point to the **dWeb Application**.  
+
+Although the above steps may look complex at first glance, don't worry, most of this process is automated via a github's actions pipeline.
+If you are not familiar with github's actions, it's simply an automation framework that helps developers to automate their workflow and manage their application lifecycle.
 As you would see in the next steps, we will utilize this framework in our journy to become an dWeb Operator. 
 
-### Work environment arrangment:
-First thing first, before we can deploy anything, let's arrange our work environment.
 
-#### 1. Connect to GitHub.com and get the sources.
+### Work environment arrangment:
+First thing first, before we can deploy anything, we need to arrange our work environment.
+
+#### 1. Fork the OperatorOps github's repository.
 1. Login to your github.com account.
    > if you don't have one already, you can create a new account [here](https://github.com/join?source=login).
 2. Navigate to the [Creator-Eco/OperatorOps](https://github.com/Creator-Eco/OperatorOps) repository.
@@ -21,12 +59,53 @@ First thing first, before we can deploy anything, let's arrange our work environ
    
    ![fork the Creator-Eco/OperatorOps](images/github-fork.png)
 
-#### 2. Configure the github actions pipeline.
-1. In order to activate the github actions workflow, we first need to defined a few environment variables:
-    
-    - Navigate to the **Settings** -> **Secrets** tab.
-    ![actions tab](images/github-settings-tab.png)
-    - Click the *'Add a new secrets'* button, and add the following Secrets:
+Great!! At this stage you have your own copy of the **dWeb Core** source code.  
+In the next step, we'll configure the github's actions pipeline. 
+
+
+#### 2. Collect API secrets. 
+Our github's actions pipeline will work against the API of each of the *service providers* we mentioned above (Cloudflare, Pinata, etc.).  
+In order to do that the github's actions pipeline will use a dedicated API key for each of services.  
+
+In this step we will create a saparate github's actions [Secret](https://help.github.com/en/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets) variable that will later be used by the pipeline.
+
+- EOS private key:  
+  > With this key the github's actions pipeline will be able to deploy the **dWeb Core** smart contract to EOS blockchain.  
+  
+  Depands on the way you've created your EOS account, either you used the ```cleos``` CLI or via an online service such as [Scatter](https://support.get-scatter.com/article/33-creating-an-eos-account), this guide assumes that you have an access to your EOS's account private key.
+
+- Pinata API key:
+  > With this key the github's actions pipeline will be able to upload and start pinning the **dWeb appliaction** files in IPFS.
+   
+  1. Connect to your [Pinata](https://pinata.cloud/signup) account.
+  2. On the upper-right corner, click on your profile image and navigate to your **Account Page**.
+  3. in the **Account Page**, the relevat value exists under the PINATA SECRET API KEY field.
+   
+  ![actions tab](images/pinata.png)
+
+- Cloudflare API key:  
+  > With this key the github's actions pipeline will be able to configure your DNS to point to the location of the **dWeb appliaction** you have uploded to IPFS.
+
+  1. Connect to your [Cloudflare](https://dash.cloudflare.com/sign-up) account.
+  2. On the upper-right corner, click on your **My profile** button and navigate to you profile homepage.
+  3. Navigate to the **API Tokens** tab.
+  4. Click the **Create Token** button.
+  5. Fill the form as following:
+
+    ![actions tab](images/cloudflare.png)
+
+  6. Click the **Continue to Summary** button, and then the **Create Token** button.
+  7. Save the given API token for later use.
+
+Super dope!!! we now have all the necessaries secrets in order to activate the OperatorOps github's actions pipeline.
+
+#### 3. Configure the github's actions pipeline secrets.
+
+In this step we'll create a dedicated secret variable for each of the API secrets we collect in the privious step.
+1. In the *OperatorOps* repository homepage, click the **Settings** tab and then select the **Secrets** tab.  
+  ![actions tab](images/github-settings-tab.png)
+
+2. For each of the API secrets you collected before, create a **Secret** variable with the corresponding names:
       ```
       Name: EOS_PRIVATE_KEY
       Value: <Your EOS private key>
@@ -37,7 +116,9 @@ First thing first, before we can deploy anything, let's arrange our work environ
       Name: CLOUDFLARE_API_KEY
       Value: <Your Cloudflare api key>     
       ```
-    - At the end of the process, your screen should look like that...
+   At the end of the process, your setup should look like that...
      ![actions tab](images/github-secrets-screen.png)
 
-2. Navigate to the **Actions** tab and activate the workflow.
+#### 4. Activate the github's actions pipeline.
+
+1. Navigate to the **Actions** tab and activate the workflow.

@@ -119,6 +119,9 @@ In this step we'll create a dedicated secret variable for each of the API secret
    At the end of the process, your setup should look like this...
      ![github's actions secrets](images/github-secrets-screen.png)
 
+Yay! Now that we defined all the secrets we need, let's go and activate the github's actions pipeline.
+
 #### 4. Activate the github's actions pipeline.
 
 1. Navigate to the **Actions** tab and activate the workflow.
+  ![github's actions secrets](images/github-activate-workflow.png)

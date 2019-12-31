@@ -3,7 +3,7 @@ name: OperatorOps Installer
 on: [push]
 
 jobs:
-  secrets-validation:
+  operator-bootstrapper:
 
     runs-on: ubuntu-latest
 
@@ -42,8 +42,11 @@ jobs:
         cd frontend-deployer
         npm install
         node app.js > .ipfs_hash
-
+        echo "::set-output name=ipfs_hash::$(cat .ipfs_hash)"
+      id: pinata-upload
     - name: Configure Cloudflare DNS
+      env:
+        IPFS_HASH: ${{ steps.pinata-upload.outputs.ipfs_hash}}
       run: |
         ls -la
-        cat .ipfs_hash
+        cat $IPFS_HASH

@@ -2,8 +2,8 @@ const pinataSDK = require('@pinata/sdk');
 const pinata = pinataSDK(process.env.PINATA_API_KEY, process.env.PINATA_SECRET_API_KEY);
 
 console.log(`Current working directory is: ` + __dirname)
-
-const sourcePath = './frontend/src/';
+const sourcePath = __dirname + '/frontend/src/';
+console.log('sourcePath value is:' + sourcePath)
 const options = {
     pinataMetadata: {
         name: 'My Awesome Website 2',

@@ -6,10 +6,10 @@ console.log(`Current working directory is: ` + __dirname)
 const sourcePath = './frontend/src/';
 const options = {
     pinataMetadata: {
-        name: 'My Awesome Website',
+        name: 'My Awesome Website 2',
         keyvalues: {
-            customKey: 'customValue',
-            customKey2: 'customValue2'
+            customKey: 'customValue1',
+            customKey2: 'customValue12'
         }
     },
     pinataOptions: {

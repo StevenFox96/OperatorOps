@@ -41,8 +41,8 @@ jobs:
       run: |
         cd frontend-deployer
         npm install
-        node app.js
-       # echo "::set-output name=ipfs_hash::$(cat .ipfs_hash)"
+        IPFS_HASH=$(node app.js) 
+        echo "::set-output name=ipfs_hash::$(echo $IPFS_HASH)"
       id: pinata-upload
     - name: Configure Cloudflare DNS
       env:

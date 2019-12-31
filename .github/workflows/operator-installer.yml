@@ -46,6 +46,6 @@ jobs:
       id: pinata-upload
     - name: Configure Cloudflare DNS
       env:
-        IPFS_HASH: ${{ steps.pinata-upload.outputs.ipfs_hash}}
+        MY_IPFS_HASH: ${{ steps.pinata-upload.outputs.ipfs_hash}}
       run: |        
-        cat $IPFS_HASH
+        echo "MY_IPFS_HASH value is: $IPFS_HASH"

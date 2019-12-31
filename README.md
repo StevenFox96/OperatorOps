@@ -5,6 +5,7 @@ A **dWeb Operator** has many responsibilities. Among them are managing the lifec
 
 For more in-depth information about the **dWeb Operator** role, and the other roles in the **dWeb eocsystem** please check [here](https://google.com).
 
+
 ### Intorduction:
 
 Below you will find a step-by-step guide that will provide you all the necessary components to be a **dWeb Operator**. 
@@ -17,6 +18,7 @@ Please note, as we've tested many configurations combinations for the *service p
 2. [Pinata](https://pinata.cloud/) as an IPFS pinning service.  
 3. [Cloudflare](https://www.cloudflare.com/) as a DNS configuration service. 
 
+
 ### Prerequisites:
 
 In order to complete this guide and become a **dWeb Operator**, you will need the following:
@@ -27,6 +29,7 @@ In order to complete this guide and become a **dWeb Operator**, you will need th
 4. An active [Cloudflare](https://dash.cloudflare.com/sign-up) account. 
 
   > You can purchase DAPP tokens by using the [Bancor](https://www.bancor.network) or [NewDex](https://www.newdex.io).
+
 
 ### Configuration Architecture:
 
@@ -78,7 +81,7 @@ In this step we will create a separate GitHub's actions [Secret](https://help.gi
    
 1. Connect to your [Pinata](https://pinata.cloud/signup) account.
 2. In the upper-right corner, click on your profile image and navigate to your **Account Page**.
-3. In the **Account Page**, the relevat value exists under the PINATA SECRET API KEY field.
+3. In the **Account Page**, the relevat values exists under the **PINATA API KEY** and **PINATA SECRET API KEY** fields.
    
 ![Pinata account page](images/pinata.png)
 
@@ -113,6 +116,9 @@ In this step we'll create a dedicated secret variable for each of the API secret
       Name: PINATA_API_KEY
       Value: <Your Pinata api key>
 
+      Name: PINATA_SECRET_API_KEY
+      Value: <Your Pinata secret api key>
+
       Name: CLOUDFLARE_API_KEY
       Value: <Your Cloudflare api key>     
       ```
@@ -125,3 +131,5 @@ Yay! Now that we defined all the secrets we need, let's go and activate the gith
 
 1. Navigate to the **Actions** tab and activate the workflow.
   ![github's actions secrets](images/github-activate-workflow.png)
+
+2. 

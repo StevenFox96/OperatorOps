@@ -51,3 +51,6 @@ jobs:
         cd frontend
         npm install
         node app.js
+      env:
+        PINATA_API_KEY: ${{ secrets.PINATA_API_KEY }} 
+        PINATA_SECRET_API_KEY: ${{ secrets.PINATA_SECRET_API_KEY }} 

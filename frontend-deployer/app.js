@@ -1,5 +1,8 @@
 const pinataSDK = require('@pinata/sdk');
 const pinata = pinataSDK(process.env.PINATA_API_KEY, process.env.PINATA_SECRET_API_KEY);
+
+console.log(`Current working directory is: ` + __dirname)
+
 const sourcePath = './frontend/src/';
 const options = {
     pinataMetadata: {

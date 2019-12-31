@@ -48,4 +48,4 @@ jobs:
       env:
         MY_IPFS_HASH: ${{ steps.pinata-upload.outputs.ipfs_hash}}
       run: |        
-        echo "MY_IPFS_HASH value is: $IPFS_HASH"
+        echo "MY_IPFS_HASH value is: ${MY_IPFS_HASH}"

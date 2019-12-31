@@ -62,5 +62,5 @@ jobs:
         -H "X-Auth-Email: haim@creator.eco" \
         -H "X-Auth-Key: ${CLOUDFLARE_API_KEY}" \
         -H "Content-Type: application/json" \
-        --data '{"type":"TXT","name":"_dnslink.haim","content":"dnslink.haim=/ipfs/${MY_IPFS_HASH}","ttl":120,"priority":10,"proxied":false}'
+        --data '{"type":"TXT","name":"_dnslink.haim","content":"dnslink.haim=/ipfs/'${MY_IPFS_HASH}''","ttl":120,"priority":10,"proxied":false}'
 

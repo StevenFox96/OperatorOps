@@ -9,48 +9,41 @@ jobs:
 
     steps:
     
-    - name: Deploying smart contracts to EOS...
+    - name: Environment variables & secrets validation
       env: 
         EOS_PRIVATE_KEY: ${{ secrets.EOS_PRIVATE_KEY }}
+        PINATA_API_KEY: ${{ secrets.PINATA_API_KEY }}
+        PINATA_SECRET_API_KEY: ${{ secrets.PINATA_SECRET_API_KEY }}
+        CLOUDFLARE_API_KEY: ${{ secrets.CLOUDFLARE_API_KEY }}
       run: |
         [ -z "$EOS_PRIVATE_KEY" ] && echo "You must first create a secret named EOS_PRIVATE_KEY" && exit 1 
         echo "EOS PRV KEY is ${EOS_PRIVATE_KEY}"
-    
-    - name: Uploading the dWeb application to Pinata...
-      env: 
-        PINATA_API_KEY: ${{ secrets.PINATA_API_KEY }}
-      run: |
+
         [ -z "$PINATA_API_KEY" ] && echo "You must first create a secret named PINATA_API_KEY" && exit 1
         echo "PINATA API KEY is ${PINATA_API_KEY}"
-      
-    - name: Configuring Cloudflare DNS...
-      env: 
-        CLOUDFLARE_API_KEY: ${{ secrets.CLOUDFLARE_API_KEY }}
-      run: |
+
+        [ -z "$PINATA_SECRET_API_KEY" ] && echo "You must first create a secret named PINATA_SECRET_API_KEY" && exit 1
+        echo "PINATA SECRET API KEY is ${PINATA_API_KEY}"
+
         [ -z "$CLOUDFLARE_API_KEY" ] && echo "You must first create a secret named CLOUDFLARE_API_KEY" && exit 1  
         echo "CLOUDFLARE API KEY is ${CLOUDFLARE_API_KEY}"      
+    
+    - name: Checkout source code
+      uses: actions/checkout@v1
 
-  frontend-setup:
-
-    runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [12.x]
-
-    steps:
-    - uses: actions/checkout@v1
-    - name: Use Node.js ${{ matrix.node-version }}
+    - name: Install Node.js 
       uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
 
-    - name: npm install, build, and test
-      run: |
-        env
-        cd frontend
-        npm install
-        node app.js
+    - name: Upload frontend to pinata
       env:
         PINATA_API_KEY: ${{ secrets.PINATA_API_KEY }} 
         PINATA_SECRET_API_KEY: ${{ secrets.PINATA_SECRET_API_KEY }} 
+      run: |
+        cd frontend-deployer
+        npm install
+        node app.js > .ipfs_hash
+
+    - name: Configure Cloudflare DNS
+      run: |
+        ls -la
+        cat .ipfs_hash

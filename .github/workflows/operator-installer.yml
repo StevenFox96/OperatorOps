@@ -47,7 +47,7 @@ jobs:
 
     - name: npm install, build, and test
       run: |
-        ls -la
+        env
         cd frontend
         npm install
         node app.js

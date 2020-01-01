@@ -1,6 +1,8 @@
 name: OperatorOps Installer
 
-on: [release]
+on: 
+  release:
+    types: [created]
 
 jobs:
   operator-bootstrapper:
@@ -39,6 +41,7 @@ jobs:
         IPFS_HASH=$(node app.js) 
         echo "::set-output name=ipfs_hash::$(echo $IPFS_HASH)"
       id: pinata-upload
+
     - name: Configure Cloudflare DNS
       env:
         MY_IPFS_HASH: ${{ steps.pinata-upload.outputs.ipfs_hash}}

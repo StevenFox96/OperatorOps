@@ -1,6 +1,6 @@
 name: OperatorOps Installer
 
-on: [push]
+on: [release]
 
 jobs:
   operator-bootstrapper:

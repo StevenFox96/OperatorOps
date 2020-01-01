@@ -24,12 +24,13 @@ Please note, as we've tested many configurations combinations for the *service p
 In order to complete this guide and become a **dWeb Operator**, you will need the following:
 
 1. An active EOS account with a balance of 10000 DAPP tokens.  
-2. An active [github](https://github.com/) account.
+2. An active [GitHub](https://github.com/) account.
 3. An active [Pinata](https://pinata.cloud/signup) account.
 4. An active [Cloudflare](https://dash.cloudflare.com/sign-up) account. 
 
   > You can purchase DAPP tokens by using the [Bancor](https://www.bancor.network) or [NewDex](https://www.newdex.io).
 
+  > For all the needed accounts mentioned above besides EOS, the offered **free** plan of each of those services is good enough for you in order to complete this guide.
 
 ### Configuration Architecture:
 
@@ -67,6 +68,7 @@ In the next step, we'll configure GitHub's actions pipeline.
 
 
 #### 2. Collect API secrets. 
+
 Our GitHub's actions pipeline will work with the API of each of the *service providers* we mentioned above (Cloudflare, Pinata, etc.), in order to do that the GitHub's actions pipeline will use a dedicated API key for each of services.  
 
 In this step we will create a separate GitHub's actions [Secret](https://help.github.com/en/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets) variable that will be used later in the pipeline.
@@ -86,7 +88,6 @@ In this step we will create a separate GitHub's actions [Secret](https://help.gi
 ![Pinata account page](images/pinata.png)
 
 - Cloudflare API key:
-
   > With this key GitHub's actions pipeline will be able to configure your DNS to point to the location of the **dWeb appliaction** you have uploded to IPFS.
 
 1. Connect to your [Cloudflare](https://dash.cloudflare.com/sign-up) account.
@@ -120,7 +121,10 @@ In this step we'll create a dedicated secret variable for each of the API secret
       Value: <Your Pinata secret api key>
 
       Name: CLOUDFLARE_API_KEY
-      Value: <Your Cloudflare api key>     
+      Value: <Your Cloudflare api key> 
+
+      Name: CLOUDFLARE_ZONE_ID
+      Value: <Your Cloudflare zone id> 
       ```
    At the end of the process, your setup should look like this...
      ![github's actions secrets](images/github-secrets-screen.png)
@@ -132,4 +136,50 @@ Yay! Now that we defined all the secrets we need, let's go and activate the gith
 1. Navigate to the **Actions** tab and activate the workflow.
   ![github's actions secrets](images/github-activate-workflow.png)
 
-2. 
+
+#### 5. Create a Release and run the installation process.
+
+In order to run the github's actions pipeline, we need to create a [Release](https://help.github.com/en/github/administering-a-repository/about-releases).  
+A *Release* is a way to track the product's functionality over time by assigning a version (v1.0, v1.1, etc) for each release.
+A new release can consists of new features, bug fixes, documentation, etc. that were missing in a previous release of the product.
+
+Our github's actions pipeline configured to run with every new `Release` that created in the repository.
+
+In this step we will create a `Release` in our repository which will trigger a run of our github's actions pipeline.
+
+The pipeline will do the following: 
+1. Deploy the EOS contracts to EOS mainnet.
+2. Upload the webapp to IPFS (via Pinata)
+3. Configure your DNS to point to the webapp (via Cloudflare)
+
+At the end of the installation process, the webapp will be available through the domain you provided in the steps above.
+
+Create a Release:  
+1. In the *OperatorOps* repository homepage, click the **Releases** tab.
+![github's actions secrets](images/github-releases-tab.png)
+
+2. In the **Releases** page, click the **Create a new release** button.
+![github's actions secrets](images/github-releases-screen.png)
+
+3. Fill the new **Release** form as showing below, and click the **Publish release** button.
+![github's actions secrets](images/github-release-form-screen.png)
+
+Woohoo! in this step we created a Release and successfully triggered the installation process, in the next step, we will explore the installation process run and validate that everything works as expected.
+
+
+#### 6. Installation validation.
+
+1. In the *OperatorOps* repository homepage, click the **Actions** tab.
+![github's actions secrets](images/github-actions-tab.png)
+
+2. In the **All workflows** table, click on the first top item in the table (If this is your first time running the pipeline, you should have only one item in the table)
+![github's actions secrets](images/github-pipeline-logs.png)
+
+3. Validate that each of the steps in the pipeline is marked with a green check mark.
+![github's actions secrets](images/github-successful-pipeline.png)
+
+Awesome!
+you've made it!
+Well done.
+
+You can now navigate to your domain and view the webapp. 

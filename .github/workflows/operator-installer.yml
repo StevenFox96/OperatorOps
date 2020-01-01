@@ -34,7 +34,7 @@ jobs:
         PINATA_API_KEY: ${{ secrets.PINATA_API_KEY }} 
         PINATA_SECRET_API_KEY: ${{ secrets.PINATA_SECRET_API_KEY }} 
       run: |
-        cd frontend-deployer
+        cd webapp/deploy
         npm install
         IPFS_HASH=$(node app.js) 
         echo "::set-output name=ipfs_hash::$(echo $IPFS_HASH)"

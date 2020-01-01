@@ -17,11 +17,11 @@ jobs:
         CLOUDFLARE_API_KEY: ${{ secrets.CLOUDFLARE_API_KEY }}
         CLOUDFLARE_ZONE_ID: ${{ secrets.CLOUDFLARE_ZONE_ID }}
       run: |
-        [ -z "$EOS_PRIVATE_KEY" ] && echo "In order to continue, you must first create a secret named EOS_PRIVATE_KEY" && exit 1 
-        [ -z "$PINATA_API_KEY" ] && echo "In order to continue, you must first create a secret named PINATA_API_KEY" && exit 1
-        [ -z "$PINATA_SECRET_API_KEY" ] && echo "In order to continue, you must first create a secret named PINATA_SECRET_API_KEY" && exit 1
-        [ -z "$CLOUDFLARE_API_KEY" ] && echo "In order to continue, you must first create a secret named CLOUDFLARE_API_KEY" && exit 1  
-        [ -z "$CLOUDFLARE_ZONE_ID" ] && echo "In order to continue, you must first create a secret named CLOUDFLARE_ZONE_ID" && exit 1  
+        if [ -z "$EOS_PRIVATE_KEY" ]; then echo "In order to continue, you must first create a secret named EOS_PRIVATE_KEY" && exit 1; fi 
+        if [ -z "$PINATA_API_KEY" ]; then echo "In order to continue, you must first create a secret named PINATA_API_KEY" && exit 1; fi
+        if [ -z "$PINATA_SECRET_API_KEY" ]; echo "In order to continue, you must first create a secret named PINATA_SECRET_API_KEY" && exit 1; fi
+        if [ -z "$CLOUDFLARE_API_KEY" ]; echo "In order to continue, you must first create a secret named CLOUDFLARE_API_KEY" && exit 1; fi  
+        if [ -z "$CLOUDFLARE_ZONE_ID" ]; echo "In order to continue, you must first create a secret named CLOUDFLARE_ZONE_ID" && exit 1 ; fi
     
     - name: Checkout source code
       uses: actions/checkout@v1

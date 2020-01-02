@@ -1,8 +1,10 @@
 # How to become a dWeb Operator?
 
 > **Please Note!**    
-This guide will walk you through the steps are needed in order to deploy the **dWeb Operator** components to the Production environment.  
-If you wish to first test and operate the system in a more controled environment, please refer to this [guide](https://google.com). 
+The instructions in this guide refer to 
+The below guide will instruct you help you to complete the setup process of the will walk you through the steps are needed in order to deploy the **dWeb Operator** components to the Production environment.  
+The below guide will walk you through the steps are needed in order to deploy the **dWeb Operator** components to the Production environment.  
+If you wish to first test and operate the system in a more controlled environment, please refer to this [guide](https://google.com). 
 
 The **dWeb Operator** role is one of the most fundamental building blocks of the **dWeb** ecosystem.  
 A **dWeb Operator** has many responsibilities. Among them are managing the lifecycle of the **dWeb Application**, maintaining security, preserving the availability and reliability of the **dWeb Application** and customization for the target market.
@@ -16,12 +18,12 @@ For more in-depth information about the **dWeb Operator** role, and the other ro
 3. [Configuration Architecture](#architecture)
 4. [Installation process overview](#install-overview)
 5. [Work environment arrangment](#work-env-arrange)  
-    5.1. [Fork the OperatorOps github's repository](#fork)  
-    5.2. [Collect API secrets](#collect-apis)  
-    5.3. [Configure GitHub's actions pipeline secrets](#create-secrets)  
-    5.4. [Activate the github's actions pipeline](#activte-pipe)  
-    5.5. [Create a Release and run the installation process](#create-release)  
-    5.6. [Installation validation](#install-validation)  
+    1. [Fork the OperatorOps github's repository](#fork)  
+    2. [Collect API secrets](#collect-apis)  
+    3. [Configure GitHub's actions pipeline secrets](#create-secrets)  
+    4. [Activate the github's actions pipeline](#activte-pipe)  
+    5. [Create a Release and run the installation process](#create-release)  
+    6. [Installation validation](#install-validation)  
 6. [Summary](#summary)
 
 

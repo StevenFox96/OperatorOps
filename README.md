@@ -1,8 +1,6 @@
 # How to become a dWeb Operator?
 
 > **Please Note!**    
-The instructions in this guide refer to 
-The below guide will instruct you help you to complete the setup process of the will walk you through the steps are needed in order to deploy the **dWeb Operator** components to the Production environment.  
 The below guide will walk you through the steps are needed in order to deploy the **dWeb Operator** components to the Production environment.  
 If you wish to first test and operate the system in a more controlled environment, please refer to this [guide](https://google.com). 
 
@@ -10,8 +8,6 @@ The **dWeb Operator** role is one of the most fundamental building blocks of the
 A **dWeb Operator** has many responsibilities. Among them are managing the lifecycle of the **dWeb Application**, maintaining security, preserving the availability and reliability of the **dWeb Application** and customization for the target market.
 
 For more in-depth information about the **dWeb Operator** role, and the other roles in the **dWeb** eocsystem please check [here](https://google.com).
-
-
 
 
 ### Table of contents:
@@ -29,8 +25,6 @@ For more in-depth information about the **dWeb Operator** role, and the other ro
 6. [Summary](#summary)
 
 
-
-
 ### Intorduction <a name="introduction"></a>
 
 Below you will find a step-by-step guide that will provide you all the necessary components to be a **dWeb Operator**. 
@@ -42,8 +36,6 @@ Please note, as we've tested many configurations combinations for the *service p
 1. [Blockstart Base Package](https://dsphq.io/packages/blockstartac/ipfsservice1/blockpack2) as a DSP (dApp Service Provider) package.  
 2. [Pinata](https://pinata.cloud/) as an IPFS pinning service.  
 3. [Cloudflare](https://www.cloudflare.com/) as a DNS configuration service. 
-
-
 
 
 ### Prerequisites <a name="prerequisites"></a>
@@ -61,13 +53,9 @@ In order to complete this guide and become a **dWeb Operator**, you will need th
   > For all the needed accounts mentioned above besides EOS, the offered **free** plan of each of those services is good enough for you in order to complete this guide.
 
 
-
-
 ### Configuration Architecture <a name="architecture"></a>
 
 ![dWeb architecture](images/dWeb-arch.png)
-
-
 
 
 ### Installation process overview <a name="install-overview"></a>
@@ -85,11 +73,8 @@ If you are not familiar with GitHub's actions, it's simply an automation framewo
 As you will see in the next steps, we will utilize this automation framework in the journy to become an dWeb Operator. 
 
 
-
-
 ### Work environment arrangment: <a name="work-env-arrange"></a> 
 First thing first, before we can deploy anything, we need to arrange our work environment.
-
 
 
 #### 1. Fork the OperatorOps github's repository. <a name="fork"></a>
@@ -102,7 +87,6 @@ First thing first, before we can deploy anything, we need to arrange our work en
 
 Great!! You now have your own copy of the **dWeb Core** source code.  
 In the next step, we'll configure GitHub's actions pipeline. 
-
 
 
 #### 2. Collect API secrets. <a name="collect-apis"></a>
@@ -142,7 +126,6 @@ In this step we will create a separate GitHub's actions [Secret](https://help.gi
 Super Baller!!! We now have all the necessary secrets in order to activate the OperatorOps GitHub's actions pipeline.
 
 
-
 #### 3. Configure GitHub's actions pipeline secrets. <a name="create-secrets"></a>
 
 In this step we'll create a dedicated secret variable for each of the API secrets we collected in the privious step.
@@ -172,12 +155,10 @@ In this step we'll create a dedicated secret variable for each of the API secret
 Yay! Now that we defined all the secrets we need, let's go and activate the github's actions pipeline.
 
 
-
 #### 4. Activate the github's actions pipeline. <a name="activte-pipe"></a>
 
 1. Navigate to the **Actions** tab and activate the workflow.
   ![github's actions secrets](images/github-activate-workflow.png)
-
 
 
 #### 5. Create a Release and run the installation process. <a name="create-release"></a>
@@ -210,7 +191,6 @@ Create a Release:
 Woohoo! in this step we created a Release and successfully triggered the installation process, in the next step, we will explore the installation process run and validate that everything works as expected.
 
 
-
 #### 6. Installation validation. <a name="install-validation"></a>
 
 1. In the *OperatorOps* repository homepage, click the **Actions** tab.
@@ -221,7 +201,6 @@ Woohoo! in this step we created a Release and successfully triggered the install
 
 3. Validate that each of the steps in the pipeline is marked with a green check mark.
 ![github's actions secrets](images/github-successful-pipeline.png)
-
 
 
 ### Summary <a name="summary"></a>

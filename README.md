@@ -5,12 +5,13 @@ The below guide will walk you through the steps are needed in order to deploy th
 If you wish to first test and operate the system in a more controlled environment, please refer to this [guide](https://google.com). 
 
 The **Creator.eco Operator** role is one of the most fundamental building blocks of the **Creator.eco** ecosystem.  
-A **Creator.eco Operator** has many responsibilities. Among them are managing the lifecycle of the **WebApp**, maintaining security, preserving the availability and reliability of the **WebApp** and customization for the target market.
+A **Creator.eco Operator** has many responsibilities. Among them are managing the lifecycle of the **Web App**, maintaining security, preserving the availability and reliability of the **Web App** and customization for the target market.
 
 For more in-depth information about the **Creator.eco** role, and the other roles in the eocsystem please check [here](https://google.com).
 
 
 ### Table of contents:
+
 1. [Introduction](#introduction)
 2. [Prerequisites](#prerequisites)
 3. [Configuration Architecture](#architecture)
@@ -48,7 +49,7 @@ In order to complete this guide and become a **Creator.eco Operator**, you will 
 4. An active [Pinata](https://pinata.cloud/signup) account.
 5. An active [Cloudflare](https://dash.cloudflare.com/sign-up) account. 
 
-  > You can purchase DAPP tokens by using the [Bancor](https://www.bancor.network) or [NewDex](https://www.newdex.io).
+  > You can purchase DAPP tokens by using [Bancor](https://www.bancor.network) or [NewDex](https://www.newdex.io).
 
   > For all the needed accounts mentioned above besides EOS, the offered **free** plan of each of those services is good enough for you in order to complete this guide.
 
@@ -77,7 +78,7 @@ As you will see in the next steps, we will utilize this automation framework in 
 First thing first, before we can deploy anything, we need to arrange our work environment.
 
 
-#### 1. Fork the OperatorOps github's repository. <a name="fork"></a>
+#### 1. Fork the OperatorOps GitHub's repository. <a name="fork"></a>
 1. Login to your GitHub.com account.
    > if you don't have one already, you can create a new account [here](https://github.com/join?source=login).
 2. Navigate to the [Creator-Eco/OperatorOps](https://github.com/Creator-Eco/OperatorOps) repository.
@@ -163,7 +164,7 @@ Yay! Now that we defined all the secrets we need, let's go and activate the gith
 
 #### 5. Create a Release and run the installation process. <a name="create-release"></a>
 
-In order to run the github's actions pipeline, we'll need to create a [Release](https://help.github.com/en/github/administering-a-repository/about-releases).  
+In order to run the GitHub's actions pipeline, we'll need to create a [Release](https://help.github.com/en/github/administering-a-repository/about-releases).  
 A *Release* in software, is a term that was coined long ago, and referring to the ability to track a product's functionality over time by assigning a version schema (v1.0, v1.1, etc) for each release.
 A new release can consists of new features, bug fixes, documentation, etc. that were missing in a previous release of the product, and added to the current release.
 
@@ -188,7 +189,7 @@ Create a Release:
 3. Fill the new **Release** form as showing below, and click the **Publish release** button.
 ![github's actions secrets](images/github-release-form-screen.png)
 
-Woohoo! in this step we created a Release and successfully triggered the installation process, in the next step, we will explore the installation process run and validate that everything works as expected.
+Woohoo! In this step we created a Release and successfully triggered the installation process, in the next step, we will explore the installation process, run and validate that everything works as expected.
 
 
 #### 6. Installation validation. <a name="install-validation"></a>
@@ -205,7 +206,7 @@ Woohoo! in this step we created a Release and successfully triggered the install
 
 ### Summary <a name="summary"></a>
 Awesome!
-you've made it!
+You made it!
 Well done.
 
 You can now navigate to your domain and view the web app. 

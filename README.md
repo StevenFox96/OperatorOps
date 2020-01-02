@@ -18,12 +18,12 @@ For more in-depth information about the **dWeb Operator** role, and the other ro
 3. [Configuration Architecture](#architecture)
 4. [Installation process overview](#install-overview)
 5. [Work environment arrangment](#work-env-arrange)  
-    1. [Fork the OperatorOps github's repository](#fork)  
-    2. [Collect API secrets](#collect-apis)  
-    3. [Configure GitHub's actions pipeline secrets](#create-secrets)  
-    4. [Activate the github's actions pipeline](#activte-pipe)  
-    5. [Create a Release and run the installation process](#create-release)  
-    6. [Installation validation](#install-validation)  
+    5.1. [Fork the OperatorOps github's repository](#fork)  
+    5.2. [Collect API secrets](#collect-apis)  
+    5.3. [Configure GitHub's actions pipeline secrets](#create-secrets)  
+    5.4. [Activate the github's actions pipeline](#activte-pipe)  
+    5.5. [Create a Release and run the installation process](#create-release)  
+    5.6. [Installation validation](#install-validation)  
 6. [Summary](#summary)
 
 

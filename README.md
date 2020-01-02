@@ -1,13 +1,13 @@
-# How to become a dWeb Operator?
+# How to become a Creator.eco Operator?
 
 > **Please Note!**    
-The below guide will walk you through the steps are needed in order to deploy the **dWeb Operator** components to the Production environment.  
+The below guide will walk you through the steps are needed in order to deploy the **Creator.eco Operator** components to the Production environment.  
 If you wish to first test and operate the system in a more controlled environment, please refer to this [guide](https://google.com). 
 
-The **dWeb Operator** role is one of the most fundamental building blocks of the **dWeb** ecosystem.  
-A **dWeb Operator** has many responsibilities. Among them are managing the lifecycle of the **dWeb Application**, maintaining security, preserving the availability and reliability of the **dWeb Application** and customization for the target market.
+The **Creator.eco Operator** role is one of the most fundamental building blocks of the **Creator.eco** ecosystem.  
+A **Creator.eco Operator** has many responsibilities. Among them are managing the lifecycle of the **WebApp**, maintaining security, preserving the availability and reliability of the **WebApp** and customization for the target market.
 
-For more in-depth information about the **dWeb Operator** role, and the other roles in the **dWeb** eocsystem please check [here](https://google.com).
+For more in-depth information about the **Creator.eco** role, and the other roles in the eocsystem please check [here](https://google.com).
 
 
 ### Table of contents:
@@ -27,7 +27,7 @@ For more in-depth information about the **dWeb Operator** role, and the other ro
 
 ### Intorduction <a name="introduction"></a>
 
-Below you will find a step-by-step guide that will provide you all the necessary components to be a **dWeb Operator**. 
+Below you will find a step-by-step guide that will provide you all the necessary components to be a **Creator.eco Operator**. 
 
 Although we use specific *service providers* ([*Cloudflare*](https://www.cloudflare.com/), [*Pinata*](https://pinata.cloud/) etc.) in this guide, plase note that each of this services has alternatives, and you are more than welcome to choose other service providers, and use them in your personal installation process.
 
@@ -40,7 +40,7 @@ Please note, as we've tested many configurations combinations for the *service p
 
 ### Prerequisites <a name="prerequisites"></a>
 
-In order to complete this guide and become a **dWeb Operator**, you will need the following:
+In order to complete this guide and become a **Creator.eco Operator**, you will need the following:
 
 1. Own a Domain Name.
 2. An active EOS account with a balance of 10000 DAPP tokens.  
@@ -60,17 +60,17 @@ In order to complete this guide and become a **dWeb Operator**, you will need th
 
 ### Installation process overview <a name="install-overview"></a>
 
-The **dWeb Operator** installation process consists of 5 major steps:
+The **Creator.eco Operator** installation process consists of 5 major steps:
 
 1. Select a DSP and a DSP package to use.
 2. Stake DAPP tokens to the selected DSP.
-3. Deploy the **dWeb Core** smart contract to the EOS blockchain.
-4. Upload the **dWeb's Application** to the IPFS network.
-5. Configure your DNS to point to the **dWeb Application**.  
+3. Deploy the **Creator.eco Core** smart contract to the EOS blockchain.
+4. Upload the **Application** to the IPFS network.
+5. Configure your DNS to point to the **Application**.  
 
 Although the above steps may look complex at first glance, don't worry, most of this process is automated via a GitHub's actions pipeline.  
 If you are not familiar with GitHub's actions, it's simply an automation framework that helps developers automate their workflow and manage their application lifecycle.
-As you will see in the next steps, we will utilize this automation framework in the journy to become an dWeb Operator. 
+As you will see in the next steps, we will utilize this automation framework in the journy to become an Creator.eco Operator. 
 
 
 ### Work environment arrangment: <a name="work-env-arrange"></a> 
@@ -85,7 +85,7 @@ First thing first, before we can deploy anything, we need to arrange our work en
    
    ![fork the Creator-Eco/OperatorOps](images/github-fork.png)
 
-Great!! You now have your own copy of the **dWeb Core** source code.  
+Great!! You now have your own copy of the **Creator.eco Core** source code.  
 In the next step, we'll configure GitHub's actions pipeline. 
 
 
@@ -96,12 +96,12 @@ Our GitHub's actions pipeline will work with the API of each of the *service pro
 In this step we will create a separate GitHub's actions [Secret](https://help.github.com/en/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets) variable that will be used later in the pipeline.
 
 - EOS private key:  
-  > With this key GitHub's actions pipeline will be able to deploy the **dWeb Core** smart contract to the EOS blockchain.  
+  > With this key GitHub's actions pipeline will be able to deploy the **Creator.eco Core** smart contract to the EOS blockchain.  
   
-  Depands on the way you've created your EOS account, either you used the ```cleos``` CLI or via an online service such as [Scatter](https://support.get-scatter.com/article/33-creating-an-eos-account), this guide assumes that you have access to your EOS account's private key.
+  Depends on the way you've created your EOS account, either you used the ```cleos``` CLI or via an online service such as [Scatter](https://support.get-scatter.com/article/33-creating-an-eos-account), this guide assumes that you have access to your EOS account's private key.
 
 - Pinata API key:
-  > With this key GitHub's actions pipeline will be able to upload and start pinning the **dWeb appliaction** files in IPFS.
+  > With this key GitHub's actions pipeline will be able to upload and start pinning the **Creator.eco appliaction** files in IPFS.
    
 1. Connect to your [Pinata](https://pinata.cloud/signup) account.
 2. In the upper-right corner, click on your profile image and navigate to your **Account Page**.
@@ -110,7 +110,7 @@ In this step we will create a separate GitHub's actions [Secret](https://help.gi
 ![Pinata account page](images/pinata.png)
 
 - Cloudflare API key:
-  > With this key GitHub's actions pipeline will be able to configure your DNS to point to the location of the **dWeb appliaction** you have uploded to IPFS.
+  > With this key GitHub's actions pipeline will be able to configure your DNS to point to the location of the **Creator.eco appliaction** you uploded to IPFS.
 
 1. Connect to your [Cloudflare](https://dash.cloudflare.com/sign-up) account.
 2. In the upper-right corner, click on your **My profile** button and navigate to you profile homepage.
@@ -164,19 +164,19 @@ Yay! Now that we defined all the secrets we need, let's go and activate the gith
 #### 5. Create a Release and run the installation process. <a name="create-release"></a>
 
 In order to run the github's actions pipeline, we'll need to create a [Release](https://help.github.com/en/github/administering-a-repository/about-releases).  
-A *Release* in software, is a term that coined long ago, and referring to the ability to track the product's functionality over time by assigning a version schema (v1.0, v1.1, etc) for each release.
+A *Release* in software, is a term that was coined long ago, and referring to the ability to track a product's functionality over time by assigning a version schema (v1.0, v1.1, etc) for each release.
 A new release can consists of new features, bug fixes, documentation, etc. that were missing in a previous release of the product, and added to the current release.
 
-Our github's actions pipeline configured to run with every new `Release` that created in the repository.
+Our GitHub's actions pipeline is configured to run with every new `Release` created in the repository.
 
-In this step we will create a `Release` in our repository which will then will trigger a run of the github's actions pipeline attached to the repository.
+In this step we will create a `Release` in our repository which will then will trigger a run of the GitHub's actions pipeline attached to the repository.
 
 The pipeline will do the following: 
 1. Deploy the EOS contracts to EOS mainnet.
-2. Upload the webapp to IPFS (via Pinata)
-3. Configure your DNS to point to the webapp (via Cloudflare)
+2. Upload the web app to IPFS (via Pinata)
+3. Configure your DNS to point to the web app (via Cloudflare)
 
-At the end of the installation process, the webapp will be available through the domain you provided in the steps above.
+At the end of the installation process, the web app will be available through the domain you provided in the steps above.
 
 Create a Release:  
 1. In the *OperatorOps* repository homepage, click the **Releases** tab.
@@ -208,4 +208,4 @@ Awesome!
 you've made it!
 Well done.
 
-You can now navigate to your domain and view the webapp. 
+You can now navigate to your domain and view the web app. 

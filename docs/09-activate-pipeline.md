@@ -4,4 +4,4 @@
   ![github's actions secrets](images/github-activate-workflow.png)
 
 
-Next: [Create a Release and run the installation process](docs/10-create-release.md)
+Next: [Create a Release and run the installation process](10-create-release.md)

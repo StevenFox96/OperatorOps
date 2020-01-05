@@ -29,4 +29,4 @@ Woohoo! In this step we created a Release and successfully triggered the install
 
 In the next step, we will review the installation process to verify that everything works as expected.
 
-Next: [Installation validation](docs/11-validation.md)
+Next: [Installation validation](11-validation.md)

@@ -35,4 +35,4 @@ In this step we will create a separate GitHub's actions [Secret](https://help.gi
 
 We now have all the necessary secrets in order to activate the GitHub's actions pipeline.
 
-Next: [Configure GitHub's actions pipeline secrets](docs/08-create-secrets.md)
+Next: [Configure GitHub's actions pipeline secrets](08-create-secrets.md)

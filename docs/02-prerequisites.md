@@ -13,4 +13,4 @@ In order to complete this guide and become a **CEO**, you will need the followin
   > For all the needed accounts mentioned above besides EOS, the offered **free** plan of each of those services is good enough for you in order to complete this guide.
 
 
-Next: [Configuration Architecture](docs/03-architecture.md)
+Next: [Configuration Architecture](03-architecture.md)

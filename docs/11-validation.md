@@ -10,4 +10,4 @@
 3. Validate that each of the steps in the pipeline is marked with a green check mark.
 ![github's actions secrets](images/github-successful-pipeline.png)
 
-Next: [Summary](docs/12-summary.md)
+Next: [Summary](12-summary.md)

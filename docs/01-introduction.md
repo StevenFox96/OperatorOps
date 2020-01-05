@@ -21,4 +21,4 @@ For the simpeist setup we've found that the *service providers* listed below ena
 3. [Cloudflare](https://www.cloudflare.com/) DNS configuration service. 
 
 
-Next: [Prerequisites](docs/02-prerequisites.md)
+Next: [Prerequisites](02-prerequisites.md)

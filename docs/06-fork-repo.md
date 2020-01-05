@@ -9,4 +9,4 @@
 You now have your own copy of the **CEO Core** source code.  
 In the next steps, we will use GitHub's actions pipeline to automate the setup process of your **CEO Core** deployment.
 
-Next: [Collect API secrets](docs/07-collect-api-keys.md)
+Next: [Collect API secrets](07-collect-api-keys.md)

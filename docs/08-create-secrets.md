@@ -27,4 +27,4 @@ In this step we'll create a dedicated secret variable for each of the API secret
 Yay! Now that we defined all the secrets we need, let's activate the GitHub's actions pipeline.
 
 
-Next: [Activate the GitHub's actions pipeline](docs/09-activate-pipeline.md)
+Next: [Activate the GitHub's actions pipeline](09-activate-pipeline.md)

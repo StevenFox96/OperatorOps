@@ -7,7 +7,7 @@ This is a step-by-step installation guide to become a **Creator.eco Operator** (
 
 ## Target Audience
 
-The target audience for this guide is someone planning to support a production deployment of ש **CEO Core** components and wants to understand how everything fits together.
+The target audience for this guide is someone planning to support a production deployment of the **CEO Core** components and wants to understand how everything fits together.
 
 
 ## Copyright

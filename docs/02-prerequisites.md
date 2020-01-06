@@ -11,7 +11,8 @@ In order to complete this guide and become a **CEO**, you will need the followin
   > DAPP tokens can be purchased by using [Bancor](https://www.bancor.network) or [NewDex](https://www.newdex.io).
 
   > For all the needed accounts mentioned above besides EOS, the offered **free** plan of each of those services is good enough for you in order to complete this guide.
-
-
-Next: [System Architecture](03-architecture.md)
+  
+<br/><br/>
+<br/><br/>
+Next: [System Architecture](03-architecture.md)  
 Previous: [Introduction](01-introduction.md)

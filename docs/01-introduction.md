@@ -13,6 +13,7 @@ The **CEO Core** installation process involves among other things a configuratio
 > Altough there is more than one alternative for each of the above mentioned service providers, this installation guide provided to you with a set of automations based on GitHub's automation freamwork ([GitHub's Actions](https://help.github.com/en/actions/automating-your-workflow-with-github-actions)) which are configured to work against the API of the above service providers stack. Therefore, if you'll choose to change the service providers stack defined above, the automations attached to this repository will stop working, and you'll need to make some steps in the installation process manually.  
 > In addition, it worth mention we do have plans to improve the automation, and support more stacks of service providers, but for now, we only support the service providers stack defined above.
 
-
-Next: [Prerequisites](02-prerequisites.md)
+<br/><br/>
+<br/><br/>
+Next: [Prerequisites](02-prerequisites.md)  
 Previous: [Home](../README.md)

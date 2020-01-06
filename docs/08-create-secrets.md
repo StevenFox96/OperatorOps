@@ -1,4 +1,4 @@
-## 3. Configure GitHub's actions pipeline secrets. <a name="create-secrets"></a>
+## 3. Configure GitHub's actions pipeline secrets  
 
 In this step we'll create a dedicated secret variable for each of the API secrets collected in the previous step.
 1. In the *OperatorOps* repository homepage, click the **Settings** tab and then select the **Secrets** tab.  

@@ -1,4 +1,4 @@
-## Prerequisites <a name="prerequisites"></a>
+## Prerequisites  
 
 In order to complete this guide and become a **Creator.eco Operator** (CEO), you will need the following:
 

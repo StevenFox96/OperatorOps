@@ -1,4 +1,4 @@
-## Introduction <a name="introduction"></a>
+## Introduction  
 
 This step-to-step guide will help you to deploy the **Creator.eco Operator Core** (CEO Core) components to EOS mainnet.  
 The **CEO Core** is a collection of source code, binaries and configurations that all operate together to enable the CEO to display his website to the world.

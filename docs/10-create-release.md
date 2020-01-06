@@ -1,4 +1,4 @@
-## 5. Create a Release and run the installation process. <a name="create-release"></a>
+## 5. Create a Release and run the installation process  
 
 In order to run the GitHub's actions pipeline, we'll need to create a [Release](https://help.github.com/en/github/administering-a-repository/about-releases).  
 A *Release* in software, is a term that was coined long ago referring to the ability to track a product's functionality over time by assigning a version schema (v1.0, v1.1, etc) for each release.

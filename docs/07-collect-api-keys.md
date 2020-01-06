@@ -1,4 +1,4 @@
-## 2. Collect API secrets. <a name="collect-apis"></a>
+## 2. Collect API secrets  
 
 The GitHub's actions pipeline will work with the API of each *service providers* we mentioned above (Cloudflare, Pinata, etc.). In order to do that the GitHub's actions pipeline will use a dedicated API key provided by each of the services.  
 

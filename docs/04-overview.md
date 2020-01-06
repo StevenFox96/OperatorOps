@@ -1,4 +1,4 @@
-## Installation process overview <a name="install-overview"></a>
+## Installation process overview  
 
 The **CEO** installation process consists of 5 major steps:
 
@@ -8,4 +8,5 @@ The **CEO** installation process consists of 5 major steps:
 4. Upload the **Default UI** for your web app to the IPFS network.
 5. Configure your DNS to point to your **Default UI**.
 
-Next: [Work environment arrangment](05-work-env-arrange.md)
+Next: [Work environment arrangment](05-work-env-arrange.md)  
+Previous: [System Architecture](03-architecture.md)  

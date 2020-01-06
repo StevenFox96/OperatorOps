@@ -1,4 +1,4 @@
-## System Architecture <a name="architecture"></a>
+## System Architecture  
 
 ![dWeb architecture](images/dWeb-arch.png)
 

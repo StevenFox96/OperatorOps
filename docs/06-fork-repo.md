@@ -1,4 +1,4 @@
-## 1. Fork the OperatorOps GitHub's repository. <a name="fork"></a>
+## 1. Fork the OperatorOps GitHub's repository  
 1. Login to your GitHub.com account.
    > if you don't have one already, you can create a new account [here](https://github.com/join?source=login).
 2. Navigate to the [Creator-Eco/OperatorOps](https://github.com/Creator-Eco/OperatorOps) repository.

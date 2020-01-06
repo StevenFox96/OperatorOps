@@ -1,11 +1,11 @@
-name: OperatorOps Installer
+name: CEO Installer
 
 on: 
   release:
     types: [created]
 
 jobs:
-  operator-bootstrapper:
+  ceo-installer:
 
     runs-on: ubuntu-latest
 

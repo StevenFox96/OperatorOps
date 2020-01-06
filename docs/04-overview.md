@@ -12,5 +12,5 @@ As we mentioned earlier, most of the steps in the installation process have been
 Next in this guide, we'll gather all needed pipeline's inputs and configure the pipeline in order to make it work correctly. 
 
 <br/><br/>
-Next: [Work environment arrangment](05-work-env-arrange.md)  
+Next: [Work Environment Arrangment](05-work-env-arrange.md)  
 Previous: [System Architecture](03-architecture.md)  

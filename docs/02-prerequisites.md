@@ -1,6 +1,6 @@
 ## Prerequisites <a name="prerequisites"></a>
 
-In order to complete this guide and become a **CEO**, you will need the following:
+In order to complete this guide and become a **Creator.eco Operator** (CEO), you will need the following:
 
 1. To own a Domain Name.
 2. An active EOS account with a balance of 10000 DAPP tokens.  

@@ -18,7 +18,7 @@ The target audience for this guide is someone planning to support a production d
 
 1. [Introduction](docs/01-introduction.md)
 2. [Prerequisites](docs/02-prerequisites.md)
-3. [Configuration Architecture](docs/03-architecture.md)
+3. [System Architecture](docs/03-architecture.md)
 4. [Installation process overview](docs/04-overview.md)
 5. [Work environment arrangment](docs/05-work-env-arrange.md)  
     5.1. [Fork the OperatorOps GitHub's repository](docs/06-fork-repo.md)  

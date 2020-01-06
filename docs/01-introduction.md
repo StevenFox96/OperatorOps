@@ -15,3 +15,4 @@ The **CEO Core** installation process involves among other things a configuratio
 
 
 Next: [Prerequisites](02-prerequisites.md)
+Previous: [Home](../README.md)

@@ -1,6 +1,6 @@
 ## Introduction <a name="introduction"></a>
 
-This step-to-step guide will help you to deploy the **Creator.eco Operator Core** components (CEO Core) to EOS mainnet.  
+This step-to-step guide will help you to deploy the **Creator.eco Operator Core** (CEO Core) components to EOS mainnet.  
 The **CEO Core** is a collection of source code, binaries and configurations that all operate together to enable the CEO to display his website to the world.
 
 The **CEO Core** installation process involves, among other things, a configuration of 3rd party services such as **IPFS Pinning** service provider and **DNS configuration** service provider. As we've tested many configurations combinations for the service providers stack along the way, we've found that the service providers list below enable the most easy-to-use and configure installation process.

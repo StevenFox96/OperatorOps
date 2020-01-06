@@ -14,6 +14,5 @@ The **CEO Core** installation process involves, among other things, a configurat
 > In addition, we do have plans to improve the automation, and support more stacks of service providers, but for now, we only support the service providers stack defined above.
 
 <br/><br/>
-<br/><br/>
 Next: [Prerequisites](02-prerequisites.md)  
 Previous: [Home](../README.md)

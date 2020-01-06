@@ -13,6 +13,5 @@ In order to complete this guide and become a **Creator.eco Operator** (CEO), you
   > For all the needed accounts mentioned above besides EOS, the offered **free** plan of each of those services is good enough for you in order to complete this guide.
   
 <br/><br/>
-<br/><br/>
 Next: [System Architecture](03-architecture.md)  
 Previous: [Introduction](01-introduction.md)

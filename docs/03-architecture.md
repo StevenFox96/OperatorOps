@@ -19,6 +19,5 @@ Refernces:
 - DAPP Service Provider: [DAPP: The Way to Web 3.0](https://medium.com/the-liquidapps-blog/scalability-flexibility-and-interoperability-web3-liquidapps-six-month-report-c8bfce09f29)
 
 <br/><br/>
-<br/><br/>
 Next: [Installation process overview](04-overview.md)  
 Previous: [Prerequisites](02-prerequisites.md)

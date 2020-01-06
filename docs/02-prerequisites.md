@@ -1,4 +1,4 @@
-### Prerequisites <a name="prerequisites"></a>
+## Prerequisites <a name="prerequisites"></a>
 
 In order to complete this guide and become a **CEO**, you will need the following:
 

@@ -1,4 +1,4 @@
-### Installation process overview <a name="install-overview"></a>
+## Installation process overview <a name="install-overview"></a>
 
 The **CEO** installation process consists of 5 major steps:
 

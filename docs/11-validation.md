@@ -1,5 +1,4 @@
-
-#### 6. Installation validation. <a name="install-validation"></a>
+## 6. Installation validation. <a name="install-validation"></a>
 
 1. In the *OperatorOps* repository homepage, click the **Actions** tab.
 ![github's actions secrets](images/github-actions-tab.png)

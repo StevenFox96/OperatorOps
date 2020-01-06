@@ -1,4 +1,4 @@
-## 4. Activate the GitHub's actions pipeline  
+## Activate the GitHub's actions pipeline  
 
 1. Navigate to the **Actions** tab and activate the workflow.
   ![github's actions secrets](images/github-activate-workflow.png)

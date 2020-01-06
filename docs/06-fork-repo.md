@@ -1,4 +1,4 @@
-## 1. Fork the OperatorOps GitHub's repository  
+## Fork the OperatorOps GitHub's repository  
 
 Our first task in the **Creator.eco Operator** (CEO) installation process is fairly simple but yet, this task is crucial for the sake of providing you an isolated installation process.  
 In order to ensure that your installlation proces is secured and there is no risk for you to exedently expose secrets that your pipeline will use, the first thing you will ask to do is to clone this repository to you GitHub account. this way, all the secrets you will use further in this installation process will be available in your personal GitHub account only and nowhere else.

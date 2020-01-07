@@ -1,8 +1,6 @@
 name: CEO Installer
 
-on: 
-  release:
-    types: [created]
+on: [push]
 
 jobs:
   ceo-installer:
@@ -32,36 +30,16 @@ jobs:
       uses: actions/setup-node@v1
     
     - name: Deploy CEO Core to EOS mainnet
-      run: echo "deploying..."
+      run: |
+        wget https://github.com/EOSIO/eos/releases/download/v1.8.6/eosio_1.8.6-1-ubuntu-18.04_amd64.deb
+        sudo apt install ./eosio_1.8.6-1-ubuntu-18.04_amd64.deb
+        cleos -h
+
+        echo "deploying..."
 
     - name: Upload CEO Frontend to IPFS
-      env:
-        PINATA_API_KEY: ${{ secrets.PINATA_API_KEY }} 
-        PINATA_SECRET_API_KEY: ${{ secrets.PINATA_SECRET_API_KEY }} 
-      run: |
-        cd webapp/deploy
-        npm install
-        IPFS_HASH=$(node app.js) 
-        echo "::set-output name=ipfs_hash::$(echo $IPFS_HASH)"
-      id: pinata-upload
+      run: echo "Uploading the CEO frontend to IPFS network"
 
     - name: Configure DNS
-      env:
-        MY_IPFS_HASH: ${{ steps.pinata-upload.outputs.ipfs_hash}}
-        ZONE_ID: ${{ secrets.CLOUDFLARE_ZONE_ID }} 
-        CLOUDFLARE_API_KEY: ${{ secrets.CLOUDFLARE_API_KEY }}
-      run: |        
-        echo "MY_IPFS_HASH value is: ${MY_IPFS_HASH}"
-        
-        curl -X POST "https://api.cloudflare.com/client/v4/zones/${ZONE_ID}/dns_records" \
-        -H "X-Auth-Email: haim@creator.eco" \
-        -H "X-Auth-Key: ${CLOUDFLARE_API_KEY}" \
-        -H "Content-Type: application/json" \
-        --data '{"type":"CNAME","name":"haim","content":"www.cloudflare-ipfs.com","ttl":120,"priority":10,"proxied":false}'
-
-        curl -X POST "https://api.cloudflare.com/client/v4/zones/${ZONE_ID}/dns_records" \
-        -H "X-Auth-Email: haim@creator.eco" \
-        -H "X-Auth-Key: ${CLOUDFLARE_API_KEY}" \
-        -H "Content-Type: application/json" \
-        --data '{"type":"TXT","name":"_dnslink.haim","content":"dnslink.haim=/ipfs/'${MY_IPFS_HASH}'","ttl":120,"priority":10,"proxied":false}'
+      run: echo "Configuraing Cloudflare DNS"
 

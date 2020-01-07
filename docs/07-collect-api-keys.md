@@ -23,7 +23,7 @@ In this step we will collect those keys from the different service providers.
 - **Cloudflare API Token & Zone ID**:
   > With this keys the GitHub Actions pipeline will be able to configure the Cloudflare DNS to point to the location of the **CEO Frontend** you uploded to the IPFS network.
 
-    <u>API Token:</u>
+    **API Token:**
     1. Login to your [Cloudflare](https://dash.cloudflare.com/sign-up) account.
     2. In the upper-right corner, click on the **My profile** button.
     3. Click the **API Tokens** tab.
@@ -35,7 +35,7 @@ In this step we will collect those keys from the different service providers.
     6. Click  **Continue to Summary**, and then **Create Token**.
     7. Save the API token you are provided for later use.
 
-    <u>Zone ID:</u>
+    **Zone ID:**
     1. Navigate to your [Cloudflare Dashboard](https://dash.cloudflare.com/)
     2. Select the site that serves your domain.
     3. On the **Overview** tab, scroll down the page and serach for the **API** section

@@ -20,13 +20,15 @@ Create a Release:
 ![github's actions secrets](images/github-releases-tab.png)
 
 2. In the **Releases** page, click **Create a new release**.
-![github's actions secrets](images/github-releases-screen.png)
+![github's actions secrets](images/github-releases-page.png)
 
 3. Fill the new **Release** form as shown below, and click  **Publish release**.
-![github's actions secrets](images/github-release-form-screen.png)
+![github's actions secrets](images/github-release-form.png)
 
-Woohoo! In this step we created a Release and successfully triggered the installation process.
+In this step we created a Release and successfully triggered the installation process.
 
 In the next step, we will review the installation process to verify that everything works as expected.
 
-Next: [Installation validation](11-validation.md)
+<br/><br/>
+Next: [Installation validation](11-validation.md)  
+Previous: [Enable the GitHub's Actions pipeline](09-enable-pipeline.md)

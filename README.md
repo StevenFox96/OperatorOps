@@ -1,4 +1,4 @@
-# Creator.eco Operator Setup
+# Creator.eco Operator Production Setup
 
 This is a step-by-step installation guide to become a **Creator.eco Operator** (CEO) on EOS mainnet.  
 

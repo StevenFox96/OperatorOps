@@ -1,9 +1,6 @@
-# Creator.eco Operator Setup
+# Creator.eco Operator Setup for Kylin Testnet
 
-This is a step-by-step installation guide to become a **Creator.eco Operator** (CEO) on EOS mainnet.  
-
-**Please Note!**
-> For testing purposes, it can also possible to deploy the **CEO Core** components to the [Kylin](https://www.cryptokylin.io/) testnet. The instructions for that process exists in the [testnet](https://github.com/Creator-Eco/OperatorOps/tree/operatorops-setup) branch of this repository.
+This is a step-by-step installation guide to become a **Creator.eco Operator** (CEO) on the [Kylin Testnet](https://www.cryptokylin.io/).  
 
 ## Target Audience
 

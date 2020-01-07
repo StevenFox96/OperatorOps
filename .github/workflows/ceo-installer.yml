@@ -1,9 +1,11 @@
-name: OperatorOps Installer
+name: CEO Installer
 
-on: [release]
+on: 
+  release:
+    types: [created]
 
 jobs:
-  operator-bootstrapper:
+  ceo-installer:
 
     runs-on: ubuntu-latest
 
@@ -28,8 +30,11 @@ jobs:
 
     - name: Install Node.js 
       uses: actions/setup-node@v1
+    
+    - name: Deploy CEO Core to EOS mainnet
+      run: echo "deploying..."
 
-    - name: Upload frontend to pinata
+    - name: Upload CEO Frontend to IPFS
       env:
         PINATA_API_KEY: ${{ secrets.PINATA_API_KEY }} 
         PINATA_SECRET_API_KEY: ${{ secrets.PINATA_SECRET_API_KEY }} 
@@ -39,7 +44,8 @@ jobs:
         IPFS_HASH=$(node app.js) 
         echo "::set-output name=ipfs_hash::$(echo $IPFS_HASH)"
       id: pinata-upload
-    - name: Configure Cloudflare DNS
+
+    - name: Configure DNS
       env:
         MY_IPFS_HASH: ${{ steps.pinata-upload.outputs.ipfs_hash}}
         ZONE_ID: ${{ secrets.CLOUDFLARE_ZONE_ID }} 

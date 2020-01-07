@@ -5,7 +5,7 @@ The **CEO Core** is a collection of source code, binaries and configurations tha
 
 The **CEO Core** installation process involves, among other things, a configuration of 3rd party services such as **IPFS Pinning** service provider and **DNS configuration** service provider. As we've tested many configurations combinations for the service providers stack along the way, we've found that the service providers listed below enable the most easy-to-use and configure installation process.
 
-1. [Blockstart Base Package](https://dsphq.io/packages/blockstartac/ipfsservice1/blockpack2) for the DSP (dApp Service Provider) package.  
+1. [Blockstart - CreatorEco Package](https://dsphq.io/packages/blockstartac/ipfsservice1/blockpack2) for the DSP (dApp Service Provider) package.  
 2. [Pinata](https://pinata.cloud/) for the IPFS pinning service provider.  
 3. [Cloudflare](https://www.cloudflare.com/) for the DNS configuration service provider. 
 

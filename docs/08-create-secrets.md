@@ -21,10 +21,12 @@ In this step we'll create a dedicated secret variable for each of the API secret
       Name: CLOUDFLARE_ZONE_ID
       Value: <Your Cloudflare zone id> 
       ```
-   At the end of the process, your setup should look like this...
-     ![github's actions secrets](images/github-secrets-screen.png)
+   At the end, your setup should look like this...
+     ![github's actions secrets](images/github-secret-screen.png)
 
-Yay! Now that we defined all the secrets we need, let's activate the GitHub's actions pipeline.
+Great! now we created the secrets variables the pipeline expect to be exists, we're almost done... next, we'll activate the GitHub's Actions pipeline
 
 
-Next: [Activate the GitHub's actions pipeline](09-activate-pipeline.md)
+<br/><br/>
+Next: [Activate the GitHub's Actions pipeline](09-activate-pipeline.md)
+Previous: [Collect API secrets](07-collect-api-keys.md)  

@@ -32,7 +32,12 @@ jobs:
       uses: actions/setup-node@v1
     
     - name: Deploy CEO Core to EOS mainnet
-      run: echo "deploying..."
+      run: |
+        wget https://github.com/EOSIO/eos/releases/download/v1.8.6/eosio_1.8.6-1-ubuntu-18.04_amd64.deb
+        sudo apt install ./eosio_1.8.6-1-ubuntu-18.04_amd64.deb
+        cleos version client
+
+        echo "deploying..."
 
     - name: Upload CEO Frontend to IPFS
       env:

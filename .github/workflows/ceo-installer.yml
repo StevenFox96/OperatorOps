@@ -33,7 +33,7 @@ jobs:
       run: |
         wget https://github.com/EOSIO/eos/releases/download/v1.8.6/eosio_1.8.6-1-ubuntu-18.04_amd64.deb
         sudo apt install ./eosio_1.8.6-1-ubuntu-18.04_amd64.deb
-        cleos -h
+        cleos version
 
         echo "deploying..."
 

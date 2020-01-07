@@ -24,7 +24,7 @@ The target audience for this guide is someone planning to support a production d
     5.1. [Fork the OperatorOps GitHub's repository](docs/06-fork-repo.md)  
     5.2. [Collect API secrets](docs/07-collect-api-keys.md)  
     5.3. [Configure GitHub's actions pipeline secrets](docs/08-create-secrets.md)  
-    5.4. [Activate the GitHub's actions pipeline](docs/09-activate-pipeline.md)  
+    5.4. [Enable the GitHub's actions pipeline](docs/09-enable-pipeline.md)  
 6. [Create a Release and run the installation process](docs/10-create-release.md)  
 7. [Installation validation](docs/11-validation.md)  
 8. [Summary](docs/12-summary.md)

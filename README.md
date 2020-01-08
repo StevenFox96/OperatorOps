@@ -5,8 +5,8 @@ You can read more about the **Creator.eco** ecosystem and the different roles it
 
 **Please Note!**  
 > This installation guide has two installation paths.  
-> The first, which is the main path, refer to an installation process of the CEO Core components in a production environment, the EOS mainnet.  
-> The second path, which is also labled with the word **Testnet** in the relevant places in this guide, refer to an installation process of the CEO Core components in a sandbox environment, in this guide we use the [Kylin](https://www.cryptokylin.io/) testnet as our sandbox environment.  
+> The first, which is the main path, refer to an installation process of the **CEO Core** components in a production environment, the EOS mainnet.  
+> The second path, which is also labled with the word **Testnet** in the relevant places in this guide, refer to an installation process of the **CEO Core** components in a sandbox environment, in this guide we use the [Kylin](https://www.cryptokylin.io/) testnet as our sandbox environment which can provide a playground for the EOS contracts that are part of the **CEO Core** components.  
 
 
 ## Target Audience

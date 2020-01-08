@@ -1,9 +1,13 @@
-# Creator.eco Operator Production Setup
+# Creator.eco Operator Setup Guide
 
-This is a step-by-step installation guide to become a **Creator.eco Operator** (CEO) on EOS mainnet.  
+This is a step-by-step installation guide to become a **Creator.eco Operator** (CEO).  
+You can read more about the **Creator.eco** ecosystem and the different roles it has [here](https://google.com).
 
-**Please Note!**
-> For testing purposes, it can also possible to deploy the **CEO Core** components to the [Kylin](https://www.cryptokylin.io/) testnet. The instructions for that process exists in the [testnet](https://github.com/Creator-Eco/OperatorOps/tree/testnet) branch of this repository.
+**Please Note!**  
+> This installation guide has two installation paths.  
+> The first, which is the main path, refer to an installation process of the CEO Core components in a production environment, the EOS mainnet.  
+> The second path, which is also labled with the word **Testnet** in the relevant places in this guide, refer to an installation process of the CEO Core components in a sandbox environment, in this guide we use the [Kylin](https://www.cryptokylin.io/) testnet as our sandbox environment.  
+
 
 ## Target Audience
 

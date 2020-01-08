@@ -13,10 +13,10 @@ Along the way we have tested many combinations of 3rd party service provider sta
 2. [Pinata](https://pinata.cloud/) for the IPFS pinning service provider.  
 3. [Cloudflare](https://www.cloudflare.com/) for the DNS configuration service provider. 
 
-> **Please note!**  
-> Altough there is more than one alternative for each of the above mentioned service providers, this installation guide provided to you with a set of automations based on GitHub's automation freamwork ([GitHub's Actions](https://help.github.com/en/actions/automating-your-workflow-with-github-actions)) which are configured to work with the API of the above service providers stack. Therefore, if you choose to change the service providers stack defined above, the automations attached to this repository will stop working, and you'll need to perform some steps in the installation process manually.  
+**Please note!**  
+Altough there is more than one alternative for each of the above mentioned service providers, this installation guide provided to you with a set of automations based on GitHub's automation freamwork ([GitHub's Actions](https://help.github.com/en/actions/automating-your-workflow-with-github-actions)) which are configured to work with the API of the above service providers stack. Therefore, if you choose to change the service providers stack defined above, the automations attached to this repository will stop working, and you'll need to perform some steps in the installation process manually.  
 
-> In addition, we do have plans to support more service provider stacks in our automation, but for now, this is the stack defined above is the only that being supported.
+In addition, we having a clear roadmap regarding adding support for more service providers in our automation, but we will be more than happy to accept Pull Requests from you :)
 
 <br/><br/>
 Next: [Prerequisites](02-prerequisites.md)  

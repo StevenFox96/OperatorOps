@@ -11,7 +11,7 @@ You can read more about the **Creator.eco** ecosystem and the different roles it
 
 ## Target Audience
 
-The target audience for this guide is someone planning to support a production deployment of the **CEO Core** components and wants to understand how everything fits together.
+The target audience for this guide is someone planning to support a deployment of the **CEO Core** components and wants to understand how everything fits together.
 
 
 ## Copyright

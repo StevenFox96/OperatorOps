@@ -4,14 +4,15 @@ This is a step-by-step installation guide to become a **Creator.eco Operator** (
 You can read more about the **Creator.eco** ecosystem and the different roles it has [here](https://google.com).
 
 **Please Note!**  
-> This installation guide has two installation paths.  
+> This installation guide supports two installation paths.  
 > The first, which is the main path, refer to an installation process of the **CEO Core** components in a production environment, the EOS mainnet.  
-> The second path, which is also labled with the word **Testnet** in the relevant places in this guide, refer to an installation process of the **CEO Core** components in a sandbox environment, in this guide we use the [Kylin](https://www.cryptokylin.io/) testnet as our sandbox environment which can provide a playground for the EOS contracts that are part of the **CEO Core** components.  
+> The second path, which is also labled with the word **Testnet** in the relevant places in this guide, refer to an installation process of the **CEO Core** components in a sandbox environment. In this guide we'll use the [Kylin](https://www.cryptokylin.io/) testnet as our *sandbox environment*, this environment can provide a convenient playground for testing the functionality of the **CEO Core** components.  
 
 
 ## Target Audience
 
-The target audience for this guide is someone planning to support a deployment of the **CEO Core** components and wants to understand how everything fits together.
+The target audience for this guide is someone who's want to join the **Creator.eco** ecosystem as an **Operator**.  
+This guide doesn't require an advanced knowledge in software development nor extensive experience with EOS blockchain,this guide aim to be fairly simple for anyone knows and understand the basics of those two.
 
 
 ## Copyright

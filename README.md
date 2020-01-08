@@ -11,6 +11,7 @@ The target audience for this guide is someone planning to support a production d
 
 
 ## Copyright
+
 [![CC BY 4.0][cc-by-shield]][cc-by]  
 [![CC BY 4.0][cc-by-image]][cc-by]
 

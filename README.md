@@ -31,7 +31,7 @@ License][cc-by].
 [License agreement](LICENSE)
 
 
-## Table of contents:
+## Table of Contents:
 
 1. [Introduction](docs/01-introduction.md)
 2. [Prerequisites](docs/02-prerequisites.md)

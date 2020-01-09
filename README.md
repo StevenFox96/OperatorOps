@@ -11,8 +11,8 @@ You can read more about the **Creator.eco** ecosystem and the different roles it
 
 ## Target Audience
 
-The target audience for this guide is someone who's want to join the **Creator.eco** ecosystem as an **Operator**.  
-This guide doesn't require an advanced knowledge in software development nor extensive experience with EOS blockchain,this guide aim to be fairly simple for anyone knows and understand the basics of those two.
+The target audience for this guide is someone who wants to join the **Creator.eco** ecosystem as an **Operator**.  
+This guide doesn't require advanced knowledge of software development nor extensive experience with the EOS blockchain,this guide aims to be fairly simple for anyone who knows and understand the basics of those two.
 
 
 ## Copyright

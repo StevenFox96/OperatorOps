@@ -16,7 +16,7 @@ Along the way we have tested many combinations of 3rd party service provider sta
 **Please note!**  
 Altough there is more than one alternative for each of the above mentioned service providers, this installation guide provided to you with a set of automations based on GitHub's automation freamwork ([GitHub's Actions](https://help.github.com/en/actions/automating-your-workflow-with-github-actions)) which are configured to work with the API of the above service providers stack. Therefore, if you choose to change the service providers stack defined above, the automations attached to this repository will stop working, and you'll need to perform some steps in the installation process manually.  
 
-In addition, we having a clear roadmap regarding adding support for more service providers in our automation, but we will be more than happy to accept Pull Requests from you :)
+In addition, we having a clear roadmap regarding adding support for more service providers in our automation, but we will be more than happy to accept you *Pull Requests* :)
 
 <br/><br/>
 Next: [Prerequisites](02-prerequisites.md)  

@@ -8,7 +8,7 @@ It all starts with a user that browsing to the CEO's website, the DNS service th
 The website uses the EOS blockchain and the IPFS as its backend, so for example, if the website need to store a user profile picture, it will use the IPFS for that, while if the website need to modify the website users' list, it will use the blockchain for that.  
 The data that being stored on the blockchain is stored in the tables of the smart contract that the CEO deployed to his account.
 
-The DSP (dApp service provider) is expose an abstraction layer that enhance some of the EOS's blockchain capabilities such as using RAM, CPU, creating accounts, etc. in more efficient manner. The website will mostly works against the DSP layer in order to access the blockchain.  
+The DSP (dApp service provider) exposes an abstraction layer that enhance some of the EOS's blockchain capabilities such as using RAM, CPU, creating accounts, etc. in more efficient manner. The website will mostly interact with the DSP layer in order to access the blockchain.  
 
 An immortal web application is one that there is no way to shut it down (unless it's the CEO who does that) by hacking into the server that host the web application. An immortal web application preserves security all the way from its frontend to its backend with high resiliency for user's changes over time.  
 

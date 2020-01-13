@@ -34,7 +34,8 @@ jobs:
         wget https://github.com/EOSIO/eos/releases/download/v1.8.6/eosio_1.8.6-1-ubuntu-18.04_amd64.deb
         sudo apt install ./eosio_1.8.6-1-ubuntu-18.04_amd64.deb
         
-        keosd &
+        keosd --http-server-address  --https-server-address  --unix-socket-path keosd.sock &
+        
         cleos version client
         cleos wallet list
         echo "deploying..."

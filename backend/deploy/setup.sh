@@ -22,8 +22,9 @@ OPERATOR_RESERVE_RELAY=${OPERATOR_RESERVE_RELAY:-"usdb2eosrely"}
 OPERATOR_RESERVE_SYMBOL=${OPERATOR_RESERVE_SYMBOL:-"USDB"}
 OPERATOR_RESERVE_RELAY_SYMBOL=${OPERATOR_RESERVE_RELAY_SYMBOL:-"USDBEOS"}
 
-CONTRACT_WASM_FILE=${CONTRACT_WASM_FILE:-"../contracts/Operator.wasm"}
-CONTRACT_ABI_FILE=${CONTRACT_ABI_FILE:-"../contracts/Operator.abi"}
+CONTRACTS_DIR=${CONTRACTS_DIR:-"../ceo-core"}
+CONTRACT_WASM_FILE=${CONTRACT_WASM_FILE:-"ceo-core.wasm"}
+CONTRACT_ABI_FILE=${CONTRACT_ABI_FILE:-"ceo-core.abi"}
 
 VACCOUNTS_PROVIDER=${VACCOUNTS_PROVIDER:-"heliosselene"}
 VACCOUNTS_SERVICE=${VACCOUNTS_SERVICE:-"accountless1"}
@@ -207,18 +208,18 @@ function create_temp_wallet() {
 function deploy() {
     loginfo "Deploying contract"
 
-    if [ ! -f "$THIS_DIR/$CONTRACT_ABI_FILE" ]
+    if [ ! -f "$CONTRACTS_DIR/$CONTRACT_ABI_FILE" ]
     then
         logerror " -> Could not find ABI file (quitting)\n"
         exit 1
-    elif [ ! -f "$THIS_DIR/$CONTRACT_WASM_FILE" ]
+    elif [ ! -f "$CONTRACTS_DIR/$CONTRACT_WASM_FILE" ]
     then
         logerror " -> Could not find WASM file (quitting)\n"
         exit 1
     fi
 
 
-    LAST_RESULT=$(cleos -u $OPERATOR_CHAIN_NODE set contract $OPERATOR_ACCOUNT_NAME $THIS_DIR -p $OPERATOR_ACCOUNT_NAME 2>&1)
+    LAST_RESULT=$(cleos -u $OPERATOR_CHAIN_NODE set contract $OPERATOR_ACCOUNT_NAME $CONTRACTS_DIR -p $OPERATOR_ACCOUNT_NAME 2>&1)
     if [ $? -ne 0 ]
     then
         logerror " -> Could not deploy contract"

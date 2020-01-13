@@ -34,10 +34,12 @@ jobs:
         wget https://github.com/EOSIO/eos/releases/download/v1.8.6/eosio_1.8.6-1-ubuntu-18.04_amd64.deb
         sudo apt install ./eosio_1.8.6-1-ubuntu-18.04_amd64.deb
         
-        keosd --http-server-address  --https-server-address  --unix-socket-path keosd.sock &
+        WALLET_DIR=/tmp/temp-eosio-kylin-wallet
+        UNIX_SOCKET_ADDRESS=$WALLET_DIR/keosd.sock
+        WALLET_URL=unix://$UNIX_SOCKET_ADDRESS
+        keosd --wallet-dir=$WALLET_DIR --unix-socket-path=$UNIX_SOCKET_ADDRESS &
+        cleos -u https://kylin-dsp-1.liquidapps.io --verbose --wallet-url=$WALLET_URL
         
-        cleos version client
-        cleos wallet list
         echo "deploying..."
 
     - name: Upload CEO Frontend to IPFS

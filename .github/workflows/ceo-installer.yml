@@ -32,12 +32,21 @@ jobs:
       uses: actions/setup-node@v1
     
     - name: Deploy CEO Core to EOS mainnet
+      env:
+        OPERATOR_ACCOUNT_NAME: dappletokens
+        OPERATOR_PRIVATE_KEY: ${{ secrets.EOS_PRIVATE_KEY }} 
       run: |
         wget https://github.com/EOSIO/eos/releases/download/v1.8.6/eosio_1.8.6-1-ubuntu-18.04_amd64.deb
         sudo apt install ./eosio_1.8.6-1-ubuntu-18.04_amd64.deb
-        cleos version client
 
-        echo "deploying..."
+        WALLET_DIR=/tmp/temp-keosd-wallet
+        mkdir -p $WALLET_DIR
+        UNIX_SOCKET_ADDRESS=$WALLET_DIR/keosd.sock
+        WALLET_URL=unix://$UNIX_SOCKET_ADDRESS
+        keosd --wallet-dir=$WALLET_DIR --unix-socket-path=$UNIX_SOCKET_ADDRESS &
+        
+        cd backend/deploy
+        ./setup.sh
 
     - name: Upload CEO Frontend to IPFS
       id: pinata-upload

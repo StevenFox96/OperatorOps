@@ -33,7 +33,7 @@ jobs:
     
     - name: Deploy CEO Core to EOS mainnet
       env:
-        OPERATOR_ACCOUNT_NAME: dappletokens
+        OPERATOR_ACCOUNT_NAME: operatortest
         OPERATOR_PRIVATE_KEY: ${{ secrets.EOS_PRIVATE_KEY }} 
       run: |
         wget https://github.com/EOSIO/eos/releases/download/v1.8.6/eosio_1.8.6-1-ubuntu-18.04_amd64.deb

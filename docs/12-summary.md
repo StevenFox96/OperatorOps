@@ -1,7 +1,7 @@
 ## Summary  
 
-It was a long way, but you've made it! Good work!    
-You are now the proud owner of your own **Creator.eco** page.  
+Alright you're all set!    
+You are now the proud owner of your own **Creator.eco Operator** page.  
 
 Go check your domain to try it out.
 

@@ -1,0 +1,944 @@
+{
+    "____comment": "This file was generated with eosio-abigen. DO NOT EDIT ",
+    "version": "eosio::abi/1.1",
+    "types": [],
+    "structs": [
+        {
+            "name": "allowance_data",
+            "base": "",
+            "fields": [
+                {
+                    "name": "token_name",
+                    "type": "name"
+                },
+                {
+                    "name": "creator",
+                    "type": "name"
+                },
+                {
+                    "name": "weekly_allowance",
+                    "type": "float64"
+                }
+            ]
+        },
+        {
+            "name": "balance",
+            "base": "",
+            "fields": [
+                {
+                    "name": "owner",
+                    "type": "name"
+                },
+                {
+                    "name": "token_name",
+                    "type": "name"
+                },
+                {
+                    "name": "quantity",
+                    "type": "asset"
+                },
+                {
+                    "name": "meta_data",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "buy_order",
+            "base": "",
+            "fields": [
+                {
+                    "name": "order_id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "version",
+                    "type": "string"
+                },
+                {
+                    "name": "from",
+                    "type": "name"
+                },
+                {
+                    "name": "buyer",
+                    "type": "name"
+                },
+                {
+                    "name": "token_name",
+                    "type": "name"
+                },
+                {
+                    "name": "pre_buy_reserve_balance",
+                    "type": "asset"
+                },
+                {
+                    "name": "reserve_tokens_to_buy_with",
+                    "type": "asset"
+                }
+            ]
+        },
+        {
+            "name": "claim",
+            "base": "",
+            "fields": [
+                {
+                    "name": "payload",
+                    "type": "claim_dto"
+                }
+            ]
+        },
+        {
+            "name": "claim_dto",
+            "base": "",
+            "fields": [
+                {
+                    "name": "token_name",
+                    "type": "name"
+                },
+                {
+                    "name": "holder_name",
+                    "type": "name"
+                },
+                {
+                    "name": "withdraw_to",
+                    "type": "name"
+                },
+                {
+                    "name": "memo",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "config_dto",
+            "base": "",
+            "fields": [
+                {
+                    "name": "save_in_ram",
+                    "type": "bool"
+                },
+                {
+                    "name": "to_print",
+                    "type": "bool"
+                }
+            ]
+        },
+        {
+            "name": "create_token_dto",
+            "base": "",
+            "fields": [
+                {
+                    "name": "creator",
+                    "type": "name"
+                },
+                {
+                    "name": "token_name",
+                    "type": "name"
+                },
+                {
+                    "name": "title",
+                    "type": "string"
+                },
+                {
+                    "name": "image_uri",
+                    "type": "string"
+                },
+                {
+                    "name": "about_uri",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "createtoken",
+            "base": "",
+            "fields": [
+                {
+                    "name": "payload",
+                    "type": "create_token_dto"
+                }
+            ]
+        },
+        {
+            "name": "dapplet_call_dto",
+            "base": "",
+            "fields": [
+                {
+                    "name": "version",
+                    "type": "string"
+                },
+                {
+                    "name": "dapplet",
+                    "type": "name"
+                },
+                {
+                    "name": "action",
+                    "type": "name"
+                },
+                {
+                    "name": "caller",
+                    "type": "name"
+                },
+                {
+                    "name": "args",
+                    "type": "string[]"
+                }
+            ]
+        },
+        {
+            "name": "dappletcall",
+            "base": "",
+            "fields": [
+                {
+                    "name": "payload",
+                    "type": "dapplet_call_dto"
+                }
+            ]
+        },
+        {
+            "name": "empty_payload",
+            "base": "",
+            "fields": []
+        },
+        {
+            "name": "fulfillbuy",
+            "base": "",
+            "fields": [
+                {
+                    "name": "payload",
+                    "type": "empty_payload"
+                }
+            ]
+        },
+        {
+            "name": "getconfig",
+            "base": "",
+            "fields": [
+                {
+                    "name": "payload",
+                    "type": "config_dto"
+                }
+            ]
+        },
+        {
+            "name": "ipfsentry",
+            "base": "",
+            "fields": [
+                {
+                    "name": "id",
+                    "type": "uint64"
+                },
+                {
+                    "name": "data",
+                    "type": "bytes"
+                }
+            ]
+        },
+        {
+            "name": "regaccount",
+            "base": "",
+            "fields": [
+                {
+                    "name": "payload",
+                    "type": "regaccount_action"
+                }
+            ]
+        },
+        {
+            "name": "regaccount_action",
+            "base": "",
+            "fields": [
+                {
+                    "name": "vaccount",
+                    "type": "name"
+                }
+            ]
+        },
+        {
+            "name": "revshare",
+            "base": "",
+            "fields": [
+                {
+                    "name": "token_name",
+                    "type": "name"
+                },
+                {
+                    "name": "holder_name",
+                    "type": "name"
+                },
+                {
+                    "name": "percentage",
+                    "type": "float64"
+                },
+                {
+                    "name": "balance",
+                    "type": "asset"
+                },
+                {
+                    "name": "last_update_ts",
+                    "type": "uint64"
+                }
+            ]
+        },
+        {
+            "name": "sell",
+            "base": "",
+            "fields": [
+                {
+                    "name": "payload",
+                    "type": "sell_dto"
+                }
+            ]
+        },
+        {
+            "name": "sell_dto",
+            "base": "",
+            "fields": [
+                {
+                    "name": "token_name",
+                    "type": "name"
+                },
+                {
+                    "name": "seller",
+                    "type": "name"
+                },
+                {
+                    "name": "withdraw_to",
+                    "type": "name"
+                },
+                {
+                    "name": "quantity",
+                    "type": "asset"
+                },
+                {
+                    "name": "memo",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "send",
+            "base": "",
+            "fields": [
+                {
+                    "name": "payload",
+                    "type": "send_dto"
+                }
+            ]
+        },
+        {
+            "name": "send_dto",
+            "base": "",
+            "fields": [
+                {
+                    "name": "token_name",
+                    "type": "name"
+                },
+                {
+                    "name": "from",
+                    "type": "name"
+                },
+                {
+                    "name": "to",
+                    "type": "name"
+                },
+                {
+                    "name": "quantity",
+                    "type": "asset"
+                },
+                {
+                    "name": "memo",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "setting",
+            "base": "",
+            "fields": [
+                {
+                    "name": "key",
+                    "type": "uint64"
+                },
+                {
+                    "name": "settings_data",
+                    "type": "settings_struct"
+                }
+            ]
+        },
+        {
+            "name": "settings_struct",
+            "base": "",
+            "fields": [
+                {
+                    "name": "creator_eco_account",
+                    "type": "string"
+                },
+                {
+                    "name": "creator_eco_percentage",
+                    "type": "float64"
+                },
+                {
+                    "name": "operator_account",
+                    "type": "string"
+                },
+                {
+                    "name": "operator_percentage",
+                    "type": "float64"
+                },
+                {
+                    "name": "eos_symbol",
+                    "type": "string"
+                },
+                {
+                    "name": "eos_account",
+                    "type": "string"
+                },
+                {
+                    "name": "reserve_symbol",
+                    "type": "string"
+                },
+                {
+                    "name": "reserve_account",
+                    "type": "string"
+                },
+                {
+                    "name": "reserve_converter",
+                    "type": "string"
+                },
+                {
+                    "name": "bancor_network",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "shardbucket",
+            "base": "",
+            "fields": [
+                {
+                    "name": "shard_uri",
+                    "type": "bytes"
+                },
+                {
+                    "name": "shard",
+                    "type": "uint64"
+                }
+            ]
+        },
+        {
+            "name": "shardbucket_t",
+            "base": "",
+            "fields": [
+                {
+                    "name": "shard_uri",
+                    "type": "bytes"
+                },
+                {
+                    "name": "shard",
+                    "type": "uint64"
+                }
+            ]
+        },
+        {
+            "name": "temp_data",
+            "base": "",
+            "fields": [
+                {
+                    "name": "numeric_data",
+                    "type": "uint64"
+                },
+                {
+                    "name": "name_data",
+                    "type": "name"
+                },
+                {
+                    "name": "string_data",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "token",
+            "base": "",
+            "fields": [
+                {
+                    "name": "token_name",
+                    "type": "name"
+                },
+                {
+                    "name": "creator",
+                    "type": "name"
+                },
+                {
+                    "name": "supply",
+                    "type": "asset"
+                },
+                {
+                    "name": "drr",
+                    "type": "float64"
+                },
+                {
+                    "name": "initial_drr",
+                    "type": "float64"
+                },
+                {
+                    "name": "allowance_time_point",
+                    "type": "uint64"
+                },
+                {
+                    "name": "weekly_allowance",
+                    "type": "float64"
+                },
+                {
+                    "name": "reserve_balance",
+                    "type": "asset"
+                },
+                {
+                    "name": "reserve_holders",
+                    "type": "name[]"
+                },
+                {
+                    "name": "reserve_updated_at",
+                    "type": "uint64"
+                },
+                {
+                    "name": "num_of_holders",
+                    "type": "uint64"
+                },
+                {
+                    "name": "created_at",
+                    "type": "uint64"
+                }
+            ]
+        },
+        {
+            "name": "token_meta_data",
+            "base": "",
+            "fields": [
+                {
+                    "name": "token_name",
+                    "type": "name"
+                },
+                {
+                    "name": "creator",
+                    "type": "name"
+                },
+                {
+                    "name": "title",
+                    "type": "string"
+                },
+                {
+                    "name": "image_uri",
+                    "type": "string"
+                },
+                {
+                    "name": "about_uri",
+                    "type": "string"
+                },
+                {
+                    "name": "metadata",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "tokenallowc",
+            "base": "",
+            "fields": [
+                {
+                    "name": "payload",
+                    "type": "allowance_data"
+                }
+            ]
+        },
+        {
+            "name": "tokenmdata",
+            "base": "",
+            "fields": [
+                {
+                    "name": "payload",
+                    "type": "token_meta_data"
+                }
+            ]
+        },
+        {
+            "name": "tokenmeta",
+            "base": "",
+            "fields": [
+                {
+                    "name": "token_name",
+                    "type": "name"
+                },
+                {
+                    "name": "title",
+                    "type": "string"
+                },
+                {
+                    "name": "image_uri",
+                    "type": "string"
+                },
+                {
+                    "name": "about_uri",
+                    "type": "string"
+                },
+                {
+                    "name": "metadata",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "vchain",
+            "base": "",
+            "fields": [
+                {
+                    "name": "chainid",
+                    "type": "checksum256"
+                }
+            ]
+        },
+        {
+            "name": "vkey",
+            "base": "",
+            "fields": [
+                {
+                    "name": "pubkey",
+                    "type": "public_key"
+                },
+                {
+                    "name": "vaccount",
+                    "type": "name"
+                },
+                {
+                    "name": "nonce",
+                    "type": "uint64"
+                }
+            ]
+        },
+        {
+            "name": "xcleanup",
+            "base": "",
+            "fields": [
+                {
+                    "name": "current_provider",
+                    "type": "name"
+                },
+                {
+                    "name": "package",
+                    "type": "name"
+                },
+                {
+                    "name": "size",
+                    "type": "uint32"
+                },
+                {
+                    "name": "uri",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "xcommit",
+            "base": "",
+            "fields": [
+                {
+                    "name": "current_provider",
+                    "type": "name"
+                },
+                {
+                    "name": "package",
+                    "type": "name"
+                },
+                {
+                    "name": "size",
+                    "type": "uint32"
+                },
+                {
+                    "name": "uri",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "xdcommit",
+            "base": "",
+            "fields": [
+                {
+                    "name": "data",
+                    "type": "bytes"
+                }
+            ]
+        },
+        {
+            "name": "xsignal",
+            "base": "",
+            "fields": [
+                {
+                    "name": "service",
+                    "type": "name"
+                },
+                {
+                    "name": "action",
+                    "type": "name"
+                },
+                {
+                    "name": "provider",
+                    "type": "name"
+                },
+                {
+                    "name": "package",
+                    "type": "name"
+                },
+                {
+                    "name": "signalRawData",
+                    "type": "bytes"
+                }
+            ]
+        },
+        {
+            "name": "xvexec",
+            "base": "",
+            "fields": [
+                {
+                    "name": "current_provider",
+                    "type": "name"
+                },
+                {
+                    "name": "package",
+                    "type": "name"
+                },
+                {
+                    "name": "payload",
+                    "type": "bytes"
+                },
+                {
+                    "name": "sig",
+                    "type": "signature"
+                },
+                {
+                    "name": "pubkey",
+                    "type": "public_key"
+                }
+            ]
+        },
+        {
+            "name": "xvinit",
+            "base": "",
+            "fields": [
+                {
+                    "name": "chainid",
+                    "type": "checksum256"
+                }
+            ]
+        },
+        {
+            "name": "xwarmup",
+            "base": "",
+            "fields": [
+                {
+                    "name": "current_provider",
+                    "type": "name"
+                },
+                {
+                    "name": "package",
+                    "type": "name"
+                },
+                {
+                    "name": "size",
+                    "type": "uint32"
+                },
+                {
+                    "name": "uri",
+                    "type": "string"
+                },
+                {
+                    "name": "data",
+                    "type": "bytes"
+                }
+            ]
+        }
+    ],
+    "actions": [
+        {
+            "name": "claim",
+            "type": "claim",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "createtoken",
+            "type": "createtoken",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "dappletcall",
+            "type": "dappletcall",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "fulfillbuy",
+            "type": "fulfillbuy",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "getconfig",
+            "type": "getconfig",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "regaccount",
+            "type": "regaccount",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "sell",
+            "type": "sell",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "send",
+            "type": "send",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "tokenallowc",
+            "type": "tokenallowc",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "tokenmdata",
+            "type": "tokenmdata",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "xcleanup",
+            "type": "xcleanup",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "xcommit",
+            "type": "xcommit",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "xdcommit",
+            "type": "xdcommit",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "xsignal",
+            "type": "xsignal",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "xvexec",
+            "type": "xvexec",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "xvinit",
+            "type": "xvinit",
+            "ricardian_contract": ""
+        },
+        {
+            "name": "xwarmup",
+            "type": "xwarmup",
+            "ricardian_contract": ""
+        }
+    ],
+    "tables": [
+        {
+            "name": ".balances",
+            "type": "balance",
+            "index_type": "i64",
+            "key_names": [],
+            "key_types": []
+        },
+        {
+            "name": ".tokensmeta",
+            "type": "tokenmeta",
+            "index_type": "i64",
+            "key_names": [],
+            "key_types": []
+        },
+        {
+            "name": ".vkey",
+            "type": "vkey",
+            "index_type": "i64",
+            "key_names": [],
+            "key_types": []
+        },
+        {
+            "name": "balances",
+            "type": "shardbucket",
+            "index_type": "i64",
+            "key_names": [],
+            "key_types": []
+        },
+        {
+            "name": "buyorders",
+            "type": "buy_order",
+            "index_type": "i64",
+            "key_names": [],
+            "key_types": []
+        },
+        {
+            "name": "ipfsentry",
+            "type": "ipfsentry",
+            "index_type": "i64",
+            "key_names": [],
+            "key_types": []
+        },
+        {
+            "name": "revshare",
+            "type": "revshare",
+            "index_type": "i64",
+            "key_names": [],
+            "key_types": []
+        },
+        {
+            "name": "setting",
+            "type": "setting",
+            "index_type": "i64",
+            "key_names": [],
+            "key_types": []
+        },
+        {
+            "name": "tempdata",
+            "type": "temp_data",
+            "index_type": "i64",
+            "key_names": [],
+            "key_types": []
+        },
+        {
+            "name": "tokens",
+            "type": "token",
+            "index_type": "i64",
+            "key_names": [],
+            "key_types": []
+        },
+        {
+            "name": "tokensmeta",
+            "type": "shardbucket",
+            "index_type": "i64",
+            "key_names": [],
+            "key_types": []
+        },
+        {
+            "name": "vchain",
+            "type": "vchain",
+            "index_type": "i64",
+            "key_names": [],
+            "key_types": []
+        },
+        {
+            "name": "vkey",
+            "type": "shardbucket_t",
+            "index_type": "i64",
+            "key_names": [],
+            "key_types": []
+        }
+    ],
+    "ricardian_clauses": [],
+    "variants": []
+}

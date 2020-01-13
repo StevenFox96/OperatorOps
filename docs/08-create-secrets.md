@@ -1,6 +1,7 @@
 ## Configure GitHub's actions pipeline secrets  
 
 In this step we'll create a dedicated secret variable for each of the API secrets collected in the previous step.
+
 1. In the *OperatorOps* repository homepage, click the **Settings** tab and then select the **Secrets** tab.  
   ![github's settings tab](images/github-settings-tab.png)
 
@@ -21,6 +22,27 @@ In this step we'll create a dedicated secret variable for each of the API secret
       Name: CLOUDFLARE_ZONE_ID
       Value: <Your Cloudflare zone id> 
       ```
+
+3. In addition, also add the following secrets:
+     -  ```
+        Name: OPERATOR_DOMAIN_NAME
+        Value: <Your Domain Name>
+        ```
+        For example: operator.com, subdomains are **not** allowed.
+
+     - ```
+        Name: EOS_ACCOUNT_NAME
+        Value: <Your EOS account name>
+        ```
+        This value will be used as the EOS smart contract name. 
+
+      **Testnet**
+     - ```
+        Name: DEPLOY_TO_TESTNET
+        Value: true/false (default is false) 
+        ```
+        When value is *true* the deployment of the **CEO Core** will be to the **Kylin** Testnet, else, the deployment will be to the EOS mainnet.
+
    At the end, your setup should look like this...
      ![github's actions secrets](images/github-secret-screen.png)
 

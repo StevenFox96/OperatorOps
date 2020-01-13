@@ -34,7 +34,8 @@ jobs:
         wget https://github.com/EOSIO/eos/releases/download/v1.8.6/eosio_1.8.6-1-ubuntu-18.04_amd64.deb
         sudo apt install ./eosio_1.8.6-1-ubuntu-18.04_amd64.deb
         
-        WALLET_DIR=/tmp/temp-eosio-kylin-wallet
+        WALLET_DIR=/tmp/temp-keosd-wallet
+        mkdir -p $WALLET_DIR
         UNIX_SOCKET_ADDRESS=$WALLET_DIR/keosd.sock
         WALLET_URL=unix://$UNIX_SOCKET_ADDRESS
         keosd --wallet-dir=$WALLET_DIR --unix-socket-path=$UNIX_SOCKET_ADDRESS &

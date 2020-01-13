@@ -38,7 +38,8 @@ jobs:
         UNIX_SOCKET_ADDRESS=$WALLET_DIR/keosd.sock
         WALLET_URL=unix://$UNIX_SOCKET_ADDRESS
         keosd --wallet-dir=$WALLET_DIR --unix-socket-path=$UNIX_SOCKET_ADDRESS &
-        cleos -u https://kylin-dsp-1.liquidapps.io --verbose --wallet-url=$WALLET_URL
+        
+        cleos wallet list
         
         echo "deploying..."
 

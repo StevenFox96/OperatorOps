@@ -13,12 +13,14 @@ jobs:
     
     - name: Environment variables & secrets validation
       env: 
+        EOS_ACCOUNT_NAME: ${{ secrets.EOS_ACCOUNT_NAME }}
         EOS_PRIVATE_KEY: ${{ secrets.EOS_PRIVATE_KEY }}
         PINATA_API_KEY: ${{ secrets.PINATA_API_KEY }}
         PINATA_SECRET_API_KEY: ${{ secrets.PINATA_SECRET_API_KEY }}
         CLOUDFLARE_API_KEY: ${{ secrets.CLOUDFLARE_API_KEY }}
         CLOUDFLARE_ZONE_ID: ${{ secrets.CLOUDFLARE_ZONE_ID }}
       run: |
+        if [ -z "$EOS_ACCOUNT_NAME" ]; then echo "In order to continue, you must first create a secret named EOS_ACCOUNT_NAME" && exit 1; fi 
         if [ -z "$EOS_PRIVATE_KEY" ]; then echo "In order to continue, you must first create a secret named EOS_PRIVATE_KEY" && exit 1; fi 
         if [ -z "$PINATA_API_KEY" ]; then echo "In order to continue, you must first create a secret named PINATA_API_KEY" && exit 1; fi
         if [ -z "$PINATA_SECRET_API_KEY" ]; then echo "In order to continue, you must first create a secret named PINATA_SECRET_API_KEY" && exit 1; fi
@@ -33,7 +35,7 @@ jobs:
     
     - name: Deploy CEO Core to EOS mainnet
       env:
-        OPERATOR_ACCOUNT_NAME: operatortest
+        OPERATOR_ACCOUNT_NAME: ${{ secrets.EOS_ACCOUNT_NAME }}
         OPERATOR_PRIVATE_KEY: ${{ secrets.EOS_PRIVATE_KEY }} 
       run: |
         wget https://github.com/EOSIO/eos/releases/download/v1.8.6/eosio_1.8.6-1-ubuntu-18.04_amd64.deb
@@ -51,6 +53,7 @@ jobs:
     - name: Upload CEO Frontend to IPFS
       id: pinata-upload
       env:
+        EOS_ACCOUNT_NAME: ${{ secrets.EOS_ACCOUNT_NAME }}
         PINATA_API_KEY: ${{ secrets.PINATA_API_KEY }} 
         PINATA_SECRET_API_KEY: ${{ secrets.PINATA_SECRET_API_KEY }} 
       run: |

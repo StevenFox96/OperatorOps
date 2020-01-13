@@ -3,7 +3,7 @@ const pinata = pinataSDK(process.env.PINATA_API_KEY, process.env.PINATA_SECRET_A
 const sourcePath = '../src/';
 const options = {
     pinataMetadata: {
-        name: 'My Awesome Website',
+        name: process.env.PINATA_API_KEY,
         keyvalues: {
             customKey: 'customValue',
             customKey2: 'customValue'
@@ -13,10 +13,9 @@ const options = {
         cidVersion: 0
     }
 };
+
 pinata.pinFromFS(sourcePath, options).then((result) => {
-    //handle results here
     console.log(result.IpfsHash);
 }).catch((err) => {
-    //handle error here
     console.log(err);
 });

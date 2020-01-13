@@ -4,18 +4,40 @@
 THIS_DIR="$(cd $(dirname ${BASH_SOURCE[0]}) && pwd)"
 
 
+# Import out logging lib
+#
+source "$THIS_DIR/toolog.lib.sh" operator-setup
+
+
 
 # This are the env vars we need (defaults for test info on Kylin)
 #
-OPERATOR_ACCOUNT_NAME=${OPERATOR_ACCOUNT_NAME:-"dappletokens"}
-OPERATOR_PRIVATE_KEY=${OPERATOR_PRIVATE_KEY:-"5KDF4rdDFKKnPHcTqfMaqYw72vEXtv7rEZLy9rj4YyrjGfaAV6L"}
+OPERATOR_ACCOUNT_NAME=${OPERATOR_ACCOUNT_NAME:-""}
+OPERATOR_PRIVATE_KEY=${OPERATOR_PRIVATE_KEY:-""}
 OPERATOR_CHAIN_ID=${OPERATOR_CHAIN_ID:-"5fff1dae8dc8e2fc4d5b23b2c7665c97f9e9d8edf2b6485a86ba311c25639191"}
 OPERATOR_CHAIN_NODE=${OPERATOR_CHAIN_NODE:-"https://kylin-dsp-1.liquidapps.io"}
 
 OPERATOR_RESERVE_TOKEN=${OPERATOR_RESERVE_TOKEN:-"usdbthetoken"}
 OPERATOR_RESERVE_RELAY=${OPERATOR_RESERVE_RELAY:-"usdb2eosrely"}
 OPERATOR_RESERVE_SYMBOL=${OPERATOR_RESERVE_SYMBOL:-"USDB"}
-OPERATOR_RESERVE_RELAY_SYMBOL=${OPERATOR_RESERVE_RELAY_SYMBOL:-"USDBSYS"}
+OPERATOR_RESERVE_RELAY_SYMBOL=${OPERATOR_RESERVE_RELAY_SYMBOL:-"USDBEOS"}
+
+CONTRACT_WASM_FILE=${CONTRACT_WASM_FILE:-"../contracts/Operator.wasm"}
+CONTRACT_ABI_FILE=${CONTRACT_ABI_FILE:-"../contracts/Operator.abi"}
+
+VACCOUNTS_PROVIDER=${VACCOUNTS_PROVIDER:-"heliosselene"}
+VACCOUNTS_SERVICE=${VACCOUNTS_SERVICE:-"accountless1"}
+VACCOUNTS_PACKAGE=${VACCOUNTS_PACKAGE:-"accountless1"}
+
+VRAM_PROVIDER=${VRAM_PROVIDER:-"heliosselene"}
+VRAM_SERVICE=${VRAM_SERVICE:-"accountless1"}
+VRAM_PACKAGE=${VRAM_PACKAGE:-"package1"}
+
+VSTORAGE_PROVIDER=${VSTORAGE_PROVIDER:-"heliosselene"}
+VSTORAGE_SERVICE=${VSTORAGE_SERVICE:-"accountless1"}
+VSTORAGE_PACKAGE=${VSTORAGE_PACKAGE:-"storage"}
+
+DAPP_STAKE_AMOUNT=${DAPP_STAKE_AMOUNT:-"100.0000 DAPP"}
 
 
 
@@ -28,24 +50,11 @@ LAST_RESULT=""
 
 # Logging helpers
 #
-function logbanner() {
-    echo "\n+------------------------------------------------------------------------------------------"
-    echo "| $1"
-    echo "+------------------------------------------------------------------------------------------\n"
-}
 
-function loginfo() {
-    echo "[operator-setup] INFO : $1"
-}
 
-function logerror() {
-    echo "[operator-setup] ERROR: $1"
-}
 
-function logok() {
-    loginfo " -> ok\n"
-}
-
+# Main functions
+#
 function log_configuration() {
     loginfo "Configuration is: "
     loginfo " -> OPERATOR_CHAIN_ID             = $OPERATOR_CHAIN_ID"
@@ -61,10 +70,6 @@ function log_configuration() {
     loginfo " -> OPERATOR_RESERVE_RELAY_SYMBOL = $OPERATOR_RESERVE_RELAY_SYMBOL\n"
 }
 
-
-
-# Main functions
-#
 function assert_eos_tools() {
 
     # We need cleos
@@ -172,7 +177,11 @@ function create_temp_wallet() {
 
     if [ $? -ne 0 ]
     then
-        logerror " -> Something broke: $LAST_RESULT"
+        logerror " -> Looks like we had an unknown error (quitting)\n"
+        logerror "=================================================="
+        echo "\n$LAST_RESULT\n"
+        logerror "=================================================="
+
         exit 1
     else
         logok
@@ -182,7 +191,7 @@ function create_temp_wallet() {
     loginfo "Importing private key into wallet"
     LAST_RESULT=$(cleos -u "$OPERATOR_CHAIN_NODE" wallet import --name $WALLET_NAME --private-key "$OPERATOR_PRIVATE_KEY" 2>&1)
 
-    if [ $? -ne 0 ]
+    if [ $? -ne 0 ] && [[ $LAST_RESULT != *"already exists"* ]]
     then
         logerror " -> Looks like we had an unknown error (quitting)\n"
         logerror "=================================================="
@@ -198,11 +207,11 @@ function create_temp_wallet() {
 function deploy() {
     loginfo "Deploying contract"
 
-    if [ ! -f "$THIS_DIR/Operator.abi" ]
+    if [ ! -f "$THIS_DIR/$CONTRACT_ABI_FILE" ]
     then
         logerror " -> Could not find ABI file (quitting)\n"
         exit 1
-    elif [ ! -f "$THIS_DIR/Operator.wasm" ]
+    elif [ ! -f "$THIS_DIR/$CONTRACT_WASM_FILE" ]
     then
         logerror " -> Could not find WASM file (quitting)\n"
         exit 1
@@ -286,21 +295,102 @@ function init_contract() {
 }
 
 function stake_dapp_tokens() {
-    loginfo "Staking DAPP tokens for vRAM, vAccounts, vStorage"
 
-    # # vAccounts
-    cleos -u $OPERATOR_CHAIN_NODE push action dappservices selectpkg "[\"$OPERATOR_ACCOUNT_NAME\",\"heliosselene\",\"accountless1\",\"default\"]" -p $OPERATOR_ACCOUNT_NAME &>/dev/null
-    cleos -u $OPERATOR_CHAIN_NODE push action dappservices stake "[\"$OPERATOR_ACCOUNT_NAME\",\"heliosselene\",\"accountless1\",\"100.0000 DAPP\"]" -p $OPERATOR_ACCOUNT_NAME &>/dev/null
+    # vAccounts
+    #
+    loginfo "Selecting vAccounts package"
+    LAST_RESULT=$(cleos -u $OPERATOR_CHAIN_NODE push action dappservices selectpkg "[\"$OPERATOR_ACCOUNT_NAME\",\"$VACCOUNTS_PROVIDER\",\"$VACCOUNTS_SERVICE\",\"$VACCOUNTS_PACKAGE\"]" -p $OPERATOR_ACCOUNT_NAME 2>&1)
+    if [ $? -ne 0 ]
+    then
+        logerror " -> Could not select vAccounts service package"
+        logerror "=================================================="
+        echo "\n$LAST_RESULT\n"
+        logerror "=================================================="
 
-    # # vRAM
-    cleos -u $OPERATOR_CHAIN_NODE push action dappservices selectpkg "[\"$OPERATOR_ACCOUNT_NAME\",\"heliosselene\",\"ipfsservice1\",\"default\"]" -p $OPERATOR_ACCOUNT_NAME &>/dev/null
-    cleos -u $OPERATOR_CHAIN_NODE push action dappservices stake "[\"$OPERATOR_ACCOUNT_NAME\",\"heliosselene\",\"ipfsservice1\",\"100.0000 DAPP\"]" -p $OPERATOR_ACCOUNT_NAME &>/dev/null
+        exit 1
+    else
+        logok
+    fi
 
-    # # vStorage
-    cleos -u $OPERATOR_CHAIN_NODE push action dappservices selectpkg "[\"$OPERATOR_ACCOUNT_NAME\",\"heliosselene\",\"liquidstorag\",\"default\"]" -p $OPERATOR_ACCOUNT_NAME &>/dev/null
-    cleos -u $OPERATOR_CHAIN_NODE push action dappservices stake "[\"$OPERATOR_ACCOUNT_NAME\",\"heliosselene\",\"liquidstorag\",\"100.0000 DAPP\"]" -p $OPERATOR_ACCOUNT_NAME &>/dev/null
+    loginfo "Stake DAPP Tokens for vAccounts provider"
+    LAST_RESULT=$(cleos -u $OPERATOR_CHAIN_NODE push action dappservices stake "[\"$OPERATOR_ACCOUNT_NAME\",\"$VACCOUNTS_PROVIDER\",\"$VACCOUNTS_SERVICE\",\"$DAPP_STAKE_AMOUNT\"]" -p $OPERATOR_ACCOUNT_NAME 2>&1)
+    if [ $? -ne 0 ]
+    then
+        logerror " -> Could not stake DAPP tokens for vAccounts"
+        logerror "=================================================="
+        echo "\n$LAST_RESULT\n"
+        logerror "=================================================="
 
-    logok
+        exit 1
+    else
+        logok
+    fi
+
+
+
+
+    # vRAM
+    #
+    loginfo "Selecting vRAM package"
+    LAST_RESULT=$(cleos -u $OPERATOR_CHAIN_NODE push action dappservices selectpkg "[\"$OPERATOR_ACCOUNT_NAME\",\"$VRAM_PROVIDER\",\"$VRAM_SERVICE\",\"$VRAM_PACKAGE\"]" -p $OPERATOR_ACCOUNT_NAME 2>&1)
+    if [ $? -ne 0 ]
+    then
+        logerror " -> Could not select vRAM service package"
+        logerror "=================================================="
+        echo "\n$LAST_RESULT\n"
+        logerror "=================================================="
+
+        exit 1
+    else
+        logok
+    fi
+
+    loginfo "Stake DAPP Tokens for vRAM provider"
+    LAST_RESULT=$(cleos -u $OPERATOR_CHAIN_NODE push action dappservices stake "[\"$OPERATOR_ACCOUNT_NAME\",\"$VRAM_PROVIDER\",\"$VRAM_SERVICE\",\"$DAPP_STAKE_AMOUNT\"]" -p $OPERATOR_ACCOUNT_NAME 2>&1)
+    if [ $? -ne 0 ]
+    then
+        logerror " -> Could not stake DAPP tokens for vRAM"
+        logerror "=================================================="
+        echo "\n$LAST_RESULT\n"
+        logerror "=================================================="
+
+        exit 1
+    else
+        logok
+    fi
+
+
+
+
+    # vStorage
+    #
+    loginfo "Selecting vStorage package"
+    LAST_RESULT=$(cleos -u $OPERATOR_CHAIN_NODE push action dappservices selectpkg "[\"$OPERATOR_ACCOUNT_NAME\",\"$VSTORAGE_PROVIDER\",\"$VSTORAGE_SERVICE\",\"$VSTORAGE_PACKAGE\"]" -p $OPERATOR_ACCOUNT_NAME 2>&1)
+    if [ $? -ne 0 ]
+    then
+        logerror " -> Could not select vStorage service package"
+        logerror "=================================================="
+        echo "\n$LAST_RESULT\n"
+        logerror "=================================================="
+
+        exit 1
+    else
+        logok
+    fi
+
+    loginfo "Stake DAPP Tokens for vStorage provider"
+    LAST_RESULT=$(cleos -u $OPERATOR_CHAIN_NODE push action dappservices stake "[\"$OPERATOR_ACCOUNT_NAME\",\"$VSTORAGE_PROVIDER\",\"$VSTORAGE_SERVICE\",\"$DAPP_STAKE_AMOUNT\"]" -p $OPERATOR_ACCOUNT_NAME 2>&1)
+    if [ $? -ne 0 ]
+    then
+        logerror " -> Could not stake DAPP tokens for vStorage"
+        logerror "=================================================="
+        echo "\n$LAST_RESULT\n"
+        logerror "=================================================="
+
+        exit 1
+    else
+        logok
+    fi
 }
 
 function start() {

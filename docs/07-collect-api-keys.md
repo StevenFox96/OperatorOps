@@ -1,4 +1,4 @@
-## Collect API Keys  
+## Collect API Keys and Secrets
 
 The GitHub Actions pipeline is configured to work with the API of each of the services in the service providers stack we mentioned earlier.  
 In order to do so the GitHub Actions pipeline uses a dedicated API keys (secrets) provided by each of the services.  
@@ -42,6 +42,12 @@ In this step we will collect those keys from the different service providers.
     4. Save the Zone ID you are provided for later use.
     
     ![Cloudflare create Api token](images/cloudflare-zone-id.png)
+
+    **Email Address:**
+    1. Login to your [Cloudflare](https://dash.cloudflare.com/sign-up) account.
+    2. In the upper-right corner, click on the **My profile** button.
+    3. Click the **Communication** tab.
+    4. Save the value of the Email Address for later use.
 
 
 We now have all the API keys we need, next, we'll create a [Secret](https://help.github.com/en/actions/automating-your-workflow-with-github-actions/creating-and-using-encrypted-secrets) variable for each of the API keys which will later be used by the pipeline.

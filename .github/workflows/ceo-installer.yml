@@ -67,20 +67,18 @@ jobs:
         IPFS_HASH: ${{ steps.pinata-upload.outputs.ipfs_hash}}
         ZONE_ID: ${{ secrets.CLOUDFLARE_ZONE_ID }} 
         CLOUDFLARE_API_KEY: ${{ secrets.CLOUDFLARE_API_KEY }}
-        CLOUDFLARE_USER_EMAIL: ${{ secrets.CLOUDFLARE_API_KEY }}
-        OPERATOR_DOMAIN: creator.eco
-      run: |        
-        echo "IPFS_HASH value is: ${IPFS_HASH}"
-        
+        CLOUDFLARE_USER_EMAIL: ${{ secrets.CLOUDFLARE_USER_EMAIL }}
+        OPERATOR_DOMAIN_NAME: ${{ secrets.OPERATOR_DOMAIN_NAME }}
+      run: |                
         curl -X POST "https://api.cloudflare.com/client/v4/zones/${ZONE_ID}/dns_records" \
-        -H "X-Auth-Email: haim@creator.eco" \
+        -H "X-Auth-Email: ${CLOUDFLARE_USER_EMAIL}" \
         -H "X-Auth-Key: ${CLOUDFLARE_API_KEY}" \
         -H "Content-Type: application/json" \
-        --data '{"type":"CNAME","name":"haim","content":"www.cloudflare-ipfs.com","ttl":120,"priority":10,"proxied":false}'
+        --data '{"type":"CNAME","name":"${OPERATOR_DOMAAIN_NAME}","content":"www.cloudflare-ipfs.com","ttl":120,"priority":10,"proxied":false}'
 
         curl -X POST "https://api.cloudflare.com/client/v4/zones/${ZONE_ID}/dns_records" \
-        -H "X-Auth-Email: haim@creator.eco" \
+        -H "X-Auth-Email: ${CLOUDFLARE_USER_EMAIL}" \
         -H "X-Auth-Key: ${CLOUDFLARE_API_KEY}" \
         -H "Content-Type: application/json" \
-        --data '{"type":"TXT","name":"_dnslink.haim","content":"dnslink.haim=/ipfs/'${IPFS_HASH}'","ttl":120,"priority":10,"proxied":false}'
+        --data '{"type":"TXT","name":"_dnslink","content":"dnslink=/ipfs/'${IPFS_HASH}'","ttl":120,"priority":10,"proxied":false}'
 

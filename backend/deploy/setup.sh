@@ -4,6 +4,10 @@
 THIS_DIR="$(cd $(dirname ${BASH_SOURCE[0]}) && pwd)"
 
 
+# Keep a reference of sub-shell errors for better error-handling
+#
+LAST_RESULT=""
+
 
 
 # This are the env vars we need (defaults for test info on Kylin)
@@ -406,6 +410,19 @@ function stake_dapp_tokens() {
     fi
 }
 
+function create_liquid_account_for_operator() {
+    loginfo "Installing the push-liquid-action CLI tool"
+    LAST_RESULT=$(npm i -g push-liquid-action 2>&1)
+    [[ $? != 0 ]] && logerror "Could not install push-liquid-action CLI tool (quitting)\n" && echo "$LAST_RESULT\n" && exit 1;
+    logok
+
+
+    loginfo "Creating a new LiquidAccount for the operator"
+    LAST_RESULT=$(pla -u $OPERATOR_CHAIN_NODE $OPERATOR_ACCOUNT_NAME regaccount $OPERATOR_ACCOUNT_NAME $OPERATOR_PRIVATE_KEY 2>&1)
+    [[ $? != 0 ]] && logerror "Could not create a LiquidAccount for the operator (quitting)\n" && echo "$LAST_RESULT\n" && exit 1;
+    logok
+}
+
 function start() {
     logbanner "Starting Operator Setup"
     log_configuration
@@ -423,9 +440,10 @@ function start() {
     deploy
     init_contract
 
-    # Stake the DAPP tokens
+    # Setup
     #
     stake_dapp_tokens
+    create_liquid_account_for_operator
 
     # Done
     #

@@ -246,15 +246,24 @@ function create_temp_wallet() {
 function deploy() {
     loginfo "Deploying contract"
 
+    loginfo " -> Making sure we have the ABI file"
     if [ ! -f "$CONTRACTS_DIR/$CONTRACT_ABI_FILE" ]
     then
         logerror " -> Could not find ABI file (quitting)\n"
         exit 1
-    elif [ ! -f "$CONTRACTS_DIR/$CONTRACT_WASM_FILE" ]
+    else
+        logok
+    fi
+    
+    loginfo " -> Making sure we have the WASM file"
+    if [ ! -f "$CONTRACTS_DIR/$CONTRACT_WASM_FILE" ]
     then
         logerror " -> Could not find WASM file (quitting)\n"
         exit 1
+    else
+        logok
     fi
+    loginfo " -> ok (all files found)\n"
 
 
     LAST_RESULT=$(cleos -u $OPERATOR_CHAIN_NODE set contract $OPERATOR_ACCOUNT_NAME $CONTRACTS_DIR -p $OPERATOR_ACCOUNT_NAME 2>&1)

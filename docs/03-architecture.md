@@ -2,7 +2,7 @@
 
 ![dWeb architecture](images/dWeb-arch.png)
 
-The above diagram illustrate the relation between the different components that the **Creator.eco Operator** (CEO) resposible for.  
+The above diagram illustrates the relationship between the different components that the **Creator.eco Operator** (CEO) resposible for.  
 
 It all starts with a user that browsing to the CEO's website, the DNS service that serving the CEO's domain resolves the request and return an endpoint to an IPFS gateway, the IPFS gateway will then fetch the webapp files that associated with the CEO's domain from the IPFS, and then will enable the access to the website.  
 The website uses the EOS blockchain and the IPFS as its backend, so for example, if the website need to store a user profile picture, it will use the IPFS for that, while if the website need to modify the website users' list, it will use the blockchain for that.  

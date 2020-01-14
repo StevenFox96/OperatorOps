@@ -13,7 +13,7 @@ In this step we will collect those keys from the different service providers.
 - **Pinata API keys**:
   > With this keys the GitHub Actions pipeline will be able to upload the **CEO Frontend** files to the IPFS network.
    
-1. Login to your [Pinata](https://pinata.cloud/signup) account.
+1. Login to (or create) your [Pinata](https://pinata.cloud/signup) account.
 2. In the upper-right corner, click on your profile image and navigate to your **Account Page**.
 3. In the **Account Page**, the relevant values exist under the **PINATA API KEY** and **PINATA SECRET API KEY** fields.
 4. Save the API keys you are provided for later use.

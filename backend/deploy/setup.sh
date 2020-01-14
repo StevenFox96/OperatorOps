@@ -261,7 +261,7 @@ function deploy() {
     if [[ $LAST_RESULT = *"net usage is too high"* ]] || [[ $LAST_RESULT = *"cpu usage is too high"* ]]
     then
         loginfo " -> Looks like you don't have enough NET or CPU (will try to stake some now)"
-        $(cleos -u $OPERATOR_CHAIN_NODE system delegatebw $OPERATOR_ACCOUNT_NAME $OPERATOR_ACCOUNT_NAME "20.0000 EOS" "80.0000 EOS" -p $OPERATOR_ACCOUNT_NAME 2>&1)
+        $(cleos -u $OPERATOR_CHAIN_NODE system delegatebw $OPERATOR_ACCOUNT_NAME $OPERATOR_ACCOUNT_NAME "20.0000 EOS" "80.0000 EOS" -p $OPERATOR_ACCOUNT_NAME &>/dev/null)
 
         if [ $? -ne 0 ]
         then

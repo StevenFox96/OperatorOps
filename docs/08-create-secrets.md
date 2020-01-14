@@ -51,5 +51,5 @@ In this step we'll create a dedicated secret variable for each of the API secret
 Great! Now we created the secrets variables the pipeline expect to be exists, we're almost done... next, we'll enable the GitHub's Actions pipeline
 
 <br/><br/>
-Next: [Enable the GitHub's Actions pipeline](09-enable-pipeline.md)
+Next: [Enable the GitHub's Actions pipeline](09-enable-pipeline.md)  
 Previous: [Collect API secrets](07-collect-api-keys.md)  

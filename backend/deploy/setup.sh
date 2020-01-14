@@ -74,17 +74,28 @@ function logok() {
 #
 function log_configuration() {
     loginfo "Configuration is: "
-    loginfo " -> OPERATOR_CHAIN_ID             = $OPERATOR_CHAIN_ID"
-    loginfo " -> OPERATOR_CHAIN_NODE           = $OPERATOR_CHAIN_NODE\n"
-
     loginfo " -> OPERATOR_ACCOUNT_NAME         = $OPERATOR_ACCOUNT_NAME"
-    loginfo " -> OPERATOR_PRIVATE_KEY          = (shh... this is hidden)\n"
-
+    loginfo " -> OPERATOR_PRIVATE_KEY          = (shh... this is secret)"
+    loginfo " -> OPERATOR_CHAIN_ID             = $OPERATOR_CHAIN_ID"
+    loginfo " -> OPERATOR_CHAIN_NODE           = $OPERATOR_CHAIN_NODE"
     loginfo " -> OPERATOR_RESERVE_TOKEN        = $OPERATOR_RESERVE_TOKEN"
-    loginfo " -> OPERATOR_RESERVE_SYMBOL       = $OPERATOR_RESERVE_SYMBOL\n"
-
     loginfo " -> OPERATOR_RESERVE_RELAY        = $OPERATOR_RESERVE_RELAY"
-    loginfo " -> OPERATOR_RESERVE_RELAY_SYMBOL = $OPERATOR_RESERVE_RELAY_SYMBOL\n"
+    loginfo " -> OPERATOR_RESERVE_SYMBOL       = $OPERATOR_RESERVE_SYMBOL"
+    loginfo " -> OPERATOR_RESERVE_RELAY_SYMBOL = $OPERATOR_RESERVE_RELAY_SYMBOL"
+    loginfo " -> CONTRACTS_DIR                 = $CONTRACTS_DIR"
+    loginfo " -> CONTRACT_WASM_FILE            = $CONTRACT_WASM_FILE"
+    loginfo " -> CONTRACT_ABI_FILE             = $CONTRACT_ABI_FILE"
+    loginfo " -> VACCOUNTS_PROVIDER            = $VACCOUNTS_PROVIDER"
+    loginfo " -> VACCOUNTS_SERVICE             = $VACCOUNTS_SERVICE"
+    loginfo " -> VACCOUNTS_PACKAGE             = $VACCOUNTS_PACKAGE"
+    loginfo " -> VRAM_PROVIDER                 = $VRAM_PROVIDER"
+    loginfo " -> VRAM_SERVICE                  = $VRAM_SERVICE"
+    loginfo " -> VRAM_PACKAGE                  = $VRAM_PACKAGE"
+    loginfo " -> VSTORAGE_PROVIDER             = $VSTORAGE_PROVIDER"
+    loginfo " -> VSTORAGE_SERVICE              = $VSTORAGE_SERVICE"
+    loginfo " -> VSTORAGE_PACKAGE              = $VSTORAGE_PACKAGE"
+    loginfo " -> DAPP_STAKE_AMOUNT             = $DAPP_STAKE_AMOUNT"
+    logok
 }
 
 function assert_eos_tools() {
@@ -179,7 +190,18 @@ function assert_private_key() {
     loginfo "Making sure we have the account private key"
     if [ -z "$OPERATOR_PRIVATE_KEY" ]
     then
-        logerror " -> Missing operator private key. Make sure OPERATOR_PRIVATE_KEY is configured and accessible (quitting)\n"
+        logerror " -> Missing operator private key. Make sure OPERATOR_PRIVATE_KEY is configured (quitting)\n"
+        exit 1
+    else
+        logok
+    fi
+}
+
+function assert_dapp_tokens() {
+    loginfo "Making sure operator account has DAPP tokens"
+    if [ -z "$(cleos -u $OPERATOR_CHAIN_NODE get table dappservices $OPERATOR_ACCOUNT_NAME accounts | jq '.rows[0].balance')"]
+    then
+        logerror "Account $OPERATOR_ACCOUNT_NAME does not have any DAPP tokens (quitting)\n"
         exit 1
     else
         logok
@@ -236,16 +258,34 @@ function deploy() {
 
 
     LAST_RESULT=$(cleos -u $OPERATOR_CHAIN_NODE set contract $OPERATOR_ACCOUNT_NAME $CONTRACTS_DIR -p $OPERATOR_ACCOUNT_NAME 2>&1)
-    if [ $? -ne 0 ]
+    if [[ $LAST_RESULT = *"net usage is too high"* ]] || [[ $LAST_RESULT = *"cpu usage is too high"* ]]
     then
-        logerror " -> Could not deploy contract"
-        logerror "=================================================="
-        echo "\n$LAST_RESULT\n"
-        logerror "=================================================="
+        loginfo " -> Looks like you don't have enough NET or CPU (will try to stake some now)"
+        $(cleos -u $OPERATOR_CHAIN_NODE system delegatebw $OPERATOR_ACCOUNT_NAME $OPERATOR_ACCOUNT_NAME "20.0000 EOS" "80.0000 EOS" -p $OPERATOR_ACCOUNT_NAME 2>&1)
 
-        exit 1
-    else
-        logok
+        if [ $? -ne 0 ]
+        then
+            logerror " -> Could not stake NET or CPU for the contract (quitting)\n"
+            logerror "=================================================="
+            echo "\n$LAST_RESULT\n"
+            logerror "=================================================="
+
+            exit 1
+        else
+            loginfo " -> ok, staked some more NET or CPU (trying to deploy contract again now)"
+            $(cleos -u $OPERATOR_CHAIN_NODE set contract $OPERATOR_ACCOUNT_NAME $CONTRACTS_DIR -p $OPERATOR_ACCOUNT_NAME 2>&1)
+            if [ $? -ne 0 ]
+            then
+                logerror " -> Could not deploy contract"
+                logerror "=================================================="
+                echo "\n$LAST_RESULT\n"
+                logerror "=================================================="
+
+                exit 1
+            else
+                logok
+            fi
+        fi
     fi
 
 
@@ -433,6 +473,7 @@ function start() {
     assert_eos_tools
     assert_account
     assert_private_key
+    assert_dapp_tokens
     create_temp_wallet
 
     # Deploy our contract

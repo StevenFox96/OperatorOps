@@ -9,6 +9,8 @@ In this step we'll create a dedicated secret variable for each of the API secret
       ```
       Name: EOS_PRIVATE_KEY
       Value: <Your EOS private key>
+      
+      **Testnet** If using Kylin, make sure to import your Kylin private key.
 
       Name: PINATA_API_KEY
       Value: <Your Pinata api key>

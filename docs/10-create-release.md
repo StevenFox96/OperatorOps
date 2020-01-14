@@ -12,6 +12,7 @@ The pipeline will:
 1. Deploy the EOS contracts to EOS mainnet.
 
 **TestNet** If configured for Kylin in previous steps, this will deploy to Kylin.
+
 2. Upload the **CEO Default UI** to IPFS (via Pinata)
 3. Configure your DNS to point to the **CEO Default UI** (via Cloudflare)
 

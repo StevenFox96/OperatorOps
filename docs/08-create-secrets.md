@@ -46,7 +46,7 @@ In this step we'll create a dedicated secret variable for each of the API secret
    At the end, your setup should look like this...
      ![github's actions secrets](images/github-secret-screen.png)
 
-Great! now we created the secrets variables the pipeline expect to be exists, we're almost done... next, we'll enable the GitHub's Actions pipeline
+Great! Now we created the secrets variables the pipeline expect to be exists, we're almost done... next, we'll enable the GitHub's Actions pipeline
 
 <br/><br/>
 Next: [Enable the GitHub's Actions pipeline](09-enable-pipeline.md)

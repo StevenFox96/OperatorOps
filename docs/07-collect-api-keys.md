@@ -1,7 +1,7 @@
 ## Collect API Keys and Secrets
 
 The GitHub Actions pipeline is configured to work with the API of each of the services in the service providers stack we mentioned earlier.  
-In order to do so the GitHub Actions pipeline uses a dedicated API keys (secrets) provided by each of the services.  
+In order to do so the GitHub Actions pipeline uses dedicated API keys (secrets) provided by each of the services.  
 
 In this step we will collect those keys from the different service providers. 
 

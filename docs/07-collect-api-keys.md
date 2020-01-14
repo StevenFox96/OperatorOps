@@ -9,6 +9,9 @@ In this step we will collect those keys from the different service providers.
   > With this key the GitHub Actions pipeline will be able to deploy the **CEO Core** smart contract to the EOS blockchain.  
   
   Depending on the way you created your EOS account, either via the ```cleos``` CLI or via a service such as [Scatter](https://support.get-scatter.com/article/33-creating-an-eos-account), this guide assumes that you have access to your EOS account's private key.
+  
+  **Testnet**
+  If using Kylin, make sure to use the private key associated with your Kylin account.
 
 - **Pinata API keys**:
   > With this keys the GitHub Actions pipeline will be able to upload the **CEO Frontend** files to the IPFS network.

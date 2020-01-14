@@ -38,7 +38,7 @@ In this step we will collect those keys from the different service providers.
     **Zone ID:**
     1. Navigate to your [Cloudflare Dashboard](https://dash.cloudflare.com/)
     2. Select the site that serves your domain.
-    3. On the **Overview** tab, scroll down the page and serach for the **API** section
+    3. On the **Overview** tab, scroll down the page and search for the **API** section
     4. Save the Zone ID you are provided for later use.
     
     ![Cloudflare create Api token](images/cloudflare-zone-id.png)

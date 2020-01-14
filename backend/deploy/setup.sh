@@ -199,7 +199,7 @@ function assert_private_key() {
 
 function assert_dapp_tokens() {
     loginfo "Making sure operator account has DAPP tokens"
-    if [ -z "$(cleos -u $OPERATOR_CHAIN_NODE get table dappservices $OPERATOR_ACCOUNT_NAME accounts | jq '.rows[0].balance')"]
+    if [ -z "$(cleos -u $OPERATOR_CHAIN_NODE get table dappservices $OPERATOR_ACCOUNT_NAME accounts | jq '.rows[0].balance')" ]
     then
         logerror "Account $OPERATOR_ACCOUNT_NAME does not have any DAPP tokens (quitting)\n"
         exit 1

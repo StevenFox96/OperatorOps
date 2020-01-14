@@ -286,7 +286,7 @@ function deploy() {
     
     
     LAST_RESULT=$(cleos -u $OPERATOR_CHAIN_NODE set contract $OPERATOR_ACCOUNT_NAME $CONTRACTS_DIR -p $OPERATOR_ACCOUNT_NAME 2>&1)
-    if [[ $LAST_RESULT = *"cpu usage is too high"* ]] || [[ $LAST_RESULT = *"more than allotted RAM"* ]]
+    if [[ $LAST_RESULT = *"cpu usage is too high"* ]]
     then
         loginfo " -> Looks like you don't have enough CPU (will try to get some now)"
         $(cleos -u $OPERATOR_CHAIN_NODE system delegatebw $OPERATOR_ACCOUNT_NAME $OPERATOR_ACCOUNT_NAME "0.0000 EOS" "80.0000 EOS" -p $OPERATOR_ACCOUNT_NAME &>/dev/null)

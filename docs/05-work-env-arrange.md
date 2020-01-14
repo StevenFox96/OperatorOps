@@ -5,10 +5,10 @@ In the next steps, we'll arrange our work environment in order to ensure that th
 ![CEO Github pipeline](images/github-ceo-pipeline.png)
 
 Arrange our work environment:
-1. [Fork the OperatorOps GitHub's repository](docs/06-fork-repo.md)  
-2. [Collect API secrets](docs/07-collect-api-keys.md)  
-3. [Configure GitHub's actions pipeline secrets](docs/08-create-secrets.md)  
-4. [Enable the GitHub's actions pipeline](docs/09-enable-pipeline.md)  
+1. [Fork the OperatorOps GitHub's repository](06-fork-repo.md)  
+2. [Collect API secrets](07-collect-api-keys.md)  
+3. [Configure GitHub's actions pipeline secrets](08-create-secrets.md)  
+4. [Enable the GitHub's actions pipeline](09-enable-pipeline.md)  
 
 <br/><br/>
 Next: [Fork the OperatorOps GitHub's repository](06-fork-repo.md)  

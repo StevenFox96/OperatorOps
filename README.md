@@ -45,3 +45,4 @@ License][cc-by].
 6. [Create a Release and run the installation process](docs/10-create-release.md)  
 7. [Installation validation](docs/11-validation.md)  
 8. [Summary](docs/12-summary.md)
+9. [Misc](docs/13-misc.md)

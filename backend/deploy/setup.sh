@@ -4,10 +4,6 @@
 THIS_DIR="$(cd $(dirname ${BASH_SOURCE[0]}) && pwd)"
 
 
-# Import out logging lib
-#
-source "$THIS_DIR/toolog.lib.sh" operator-setup
-
 
 
 # This are the env vars we need (defaults for test info on Kylin)
@@ -51,7 +47,23 @@ LAST_RESULT=""
 
 # Logging helpers
 #
+function logbanner() {
+    echo "\n+------------------------------------------------------------------------------------------"
+    echo "| $1"
+    echo "+------------------------------------------------------------------------------------------\n"
+}
 
+function loginfo() {
+    echo "[operator-setup] INFO : $1"
+}
+
+function logerror() {
+    echo "[operator-setup] ERROR: $1"
+}
+
+function logok() {
+    loginfo " -> ok\n"
+}
 
 
 # Main functions

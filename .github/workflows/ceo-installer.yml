@@ -33,7 +33,7 @@ jobs:
     - name: Install Node.js 
       uses: actions/setup-node@v1
     
-    - name: Deploy CEO Core to EOS mainnet
+    - name: Deploy CEO Core to EOS
       env:
         OPERATOR_ACCOUNT_NAME: ${{ secrets.EOS_ACCOUNT_NAME }}
         OPERATOR_PRIVATE_KEY: ${{ secrets.EOS_PRIVATE_KEY }} 
@@ -68,17 +68,14 @@ jobs:
         ZONE_ID: ${{ secrets.CLOUDFLARE_ZONE_ID }} 
         CLOUDFLARE_API_KEY: ${{ secrets.CLOUDFLARE_API_KEY }}
         CLOUDFLARE_USER_EMAIL: ${{ secrets.CLOUDFLARE_USER_EMAIL }}
-        OPERATOR_DOMAIN_NAME: ${{ secrets.OPERATOR_DOMAIN_NAME }}
       run: |                
         curl -X POST "https://api.cloudflare.com/client/v4/zones/${ZONE_ID}/dns_records" \
-        -H "X-Auth-Email: ${CLOUDFLARE_USER_EMAIL}" \
-        -H "X-Auth-Key: ${CLOUDFLARE_API_KEY}" \
+        -H "Authorization: Bearer ${CLOUDFLARE_API_KEY}" \
         -H "Content-Type: application/json" \
         --data '{"type":"CNAME","name":"@","content":"www.cloudflare-ipfs.com","ttl":120,"priority":10,"proxied":false}'
 
         curl -X POST "https://api.cloudflare.com/client/v4/zones/${ZONE_ID}/dns_records" \
-        -H "X-Auth-Email: ${CLOUDFLARE_USER_EMAIL}" \
-        -H "X-Auth-Key: ${CLOUDFLARE_API_KEY}" \
+        -H "Authorization: Bearer ${CLOUDFLARE_API_KEY}" \
         -H "Content-Type: application/json" \
         --data '{"type":"TXT","name":"_dnslink","content":"dnslink=/ipfs/'${IPFS_HASH}'","ttl":120,"priority":10,"proxied":false}'
 

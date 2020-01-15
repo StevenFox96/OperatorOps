@@ -3,6 +3,7 @@
 In order to complete this guide and become a **Creator.eco Operator** (CEO), you will need the following:
 
 1. To own a Domain Name.
+    > You'll need an access to a root domain, subdomains will not work with this guide (if for example your domain is *example.com* a subdomain can be foo.example.com).
 2. An active EOS account with a balance of ~200 EOS and ~1000 DAPP tokens.  
 3. An active [GitHub](https://github.com/) account.
 4. An active [Pinata](https://pinata.cloud/signup) account.

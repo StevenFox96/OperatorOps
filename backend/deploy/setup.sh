@@ -298,85 +298,41 @@ function stake_dapp_tokens() {
     #
     loginfo "Selecting vAccounts package"
     LAST_RESULT=$("$CLEOS_COMMAND" -u $OPERATOR_CHAIN_NODE push action dappservices selectpkg "[\"$OPERATOR_ACCOUNT_NAME\",\"$VACCOUNTS_PROVIDER\",\"$VACCOUNTS_SERVICE\",\"$VACCOUNTS_PACKAGE\"]" -p $OPERATOR_ACCOUNT_NAME 2>&1)
-    if [ $? -ne 0 ]; then
-        logerror " -> Could not select vAccounts service package"
-        logerror "=================================================="
-        echo "\n$LAST_RESULT\n"
-        logerror "=================================================="
-
-        exit 1
-    else
-        logok
-    fi
+    [ $? -ne 0 ] && quit_with_error " -> Could not select vAccounts service package" "$LAST_RESULT"
+    logok
 
     loginfo "Stake DAPP Tokens for vAccounts provider"
     LAST_RESULT=$("$CLEOS_COMMAND" -u $OPERATOR_CHAIN_NODE push action dappservices stake "[\"$OPERATOR_ACCOUNT_NAME\",\"$VACCOUNTS_PROVIDER\",\"$VACCOUNTS_SERVICE\",\"$DAPP_STAKE_AMOUNT\"]" -p $OPERATOR_ACCOUNT_NAME 2>&1)
-    if [ $? -ne 0 ]; then
-        logerror " -> Could not stake DAPP tokens for vAccounts"
-        logerror "=================================================="
-        echo "\n$LAST_RESULT\n"
-        logerror "=================================================="
+    [ $? -ne 0 ] && quit_with_error " -> Could not stake DAPP tokens for vAccounts" "$LAST_RESULT"
+    logok
 
-        exit 1
-    else
-        logok
-    fi
+
 
     # vRAM
     #
     loginfo "Selecting vRAM package"
     LAST_RESULT=$("$CLEOS_COMMAND" -u $OPERATOR_CHAIN_NODE push action dappservices selectpkg "[\"$OPERATOR_ACCOUNT_NAME\",\"$VRAM_PROVIDER\",\"$VRAM_SERVICE\",\"$VRAM_PACKAGE\"]" -p $OPERATOR_ACCOUNT_NAME 2>&1)
-    if [ $? -ne 0 ]; then
-        logerror " -> Could not select vRAM service package"
-        logerror "=================================================="
-        echo "\n$LAST_RESULT\n"
-        logerror "=================================================="
-
-        exit 1
-    else
-        logok
-    fi
+    [ $? -ne 0 ] && quit_with_error " -> Could not select vRAM service package" && "$LAST_RESULT"
+    logok
 
     loginfo "Stake DAPP Tokens for vRAM provider"
     LAST_RESULT=$("$CLEOS_COMMAND" -u $OPERATOR_CHAIN_NODE push action dappservices stake "[\"$OPERATOR_ACCOUNT_NAME\",\"$VRAM_PROVIDER\",\"$VRAM_SERVICE\",\"$DAPP_STAKE_AMOUNT\"]" -p $OPERATOR_ACCOUNT_NAME 2>&1)
-    if [ $? -ne 0 ]; then
-        logerror " -> Could not stake DAPP tokens for vRAM"
-        logerror "=================================================="
-        echo "\n$LAST_RESULT\n"
-        logerror "=================================================="
+    [ $? -ne 0 ] && quit_with_error " -> Could not stake DAPP tokens for vRAM" "$LAST_RESULT"
+    logok
 
-        exit 1
-    else
-        logok
-    fi
+
 
     # vStorage
     #
     loginfo "Selecting vStorage package"
     LAST_RESULT=$("$CLEOS_COMMAND" -u $OPERATOR_CHAIN_NODE push action dappservices selectpkg "[\"$OPERATOR_ACCOUNT_NAME\",\"$VSTORAGE_PROVIDER\",\"$VSTORAGE_SERVICE\",\"$VSTORAGE_PACKAGE\"]" -p $OPERATOR_ACCOUNT_NAME 2>&1)
-    if [ $? -ne 0 ]; then
-        logerror " -> Could not select vStorage service package"
-        logerror "=================================================="
-        echo "\n$LAST_RESULT\n"
-        logerror "=================================================="
-
-        exit 1
-    else
-        logok
-    fi
+    [ $? -ne 0 ] && quit_with_error " -> Could not select vStorage service package" && "$LAST_RESULT"
+    logok
 
     loginfo "Stake DAPP Tokens for vStorage provider"
     LAST_RESULT=$("$CLEOS_COMMAND" -u $OPERATOR_CHAIN_NODE push action dappservices stake "[\"$OPERATOR_ACCOUNT_NAME\",\"$VSTORAGE_PROVIDER\",\"$VSTORAGE_SERVICE\",\"$DAPP_STAKE_AMOUNT\"]" -p $OPERATOR_ACCOUNT_NAME 2>&1)
-    if [ $? -ne 0 ]; then
-        logerror " -> Could not stake DAPP tokens for vStorage"
-        logerror "=================================================="
-        echo "\n$LAST_RESULT\n"
-        logerror "=================================================="
-
-        exit 1
-    else
-        logok
-    fi
+    [ $? -ne 0 ] && quit_with_error " -> Could not stake DAPP tokens for vStorage" "$LAST_RESULT"
+    logok
 }
 
 function create_liquid_account_for_operator() {
